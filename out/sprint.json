@@ -1,0 +1,3748 @@
+[
+  {
+    "offset": 0,
+    "raw": "%1$00038s%3$hn%1$65498s%1$28672s%9$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 38,
+          "terms": {}
+        },
+        "value_str": "38"
+      },
+      {
+        "dst": "r3",
+        "value": {
+          "const": 28672,
+          "terms": {}
+        },
+        "value_str": "28672"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 38; r3 = 28672"
+  },
+  {
+    "offset": 38,
+    "raw": "%1$00074s%3$hn%1$65462s%1$*8$s%7$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 74,
+          "terms": {}
+        },
+        "value_str": "74"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r2": 1
+          }
+        },
+        "value_str": "r2"
+      }
+    ],
+    "reads": [
+      "r2"
+    ],
+    "reads_out": false,
+    "text": "PC = 74; r2 = r2"
+  },
+  {
+    "offset": 74,
+    "raw": "%1$00108s%3$hn%1$65428s%1$1s%6$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 108,
+          "terms": {}
+        },
+        "value_str": "108"
+      },
+      {
+        "dst": "r1",
+        "value": {
+          "const": 1,
+          "terms": {}
+        },
+        "value_str": "1"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 108; r1 = 1"
+  },
+  {
+    "offset": 108,
+    "raw": "%1$00149s%3$hn%1$65387s%1$*8$s%1$2s%7$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 149,
+          "terms": {}
+        },
+        "value_str": "149"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 2,
+          "terms": {
+            "r2": 1
+          }
+        },
+        "value_str": "r2 + 2"
+      }
+    ],
+    "reads": [
+      "r2"
+    ],
+    "reads_out": false,
+    "text": "PC = 149; r2 = r2 + 2"
+  },
+  {
+    "offset": 149,
+    "raw": "%1$00183s%3$hn%1$65353s%1$1s%6$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 183,
+          "terms": {}
+        },
+        "value_str": "183"
+      },
+      {
+        "dst": "r1",
+        "value": {
+          "const": 1,
+          "terms": {}
+        },
+        "value_str": "1"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 183; r1 = 1"
+  },
+  {
+    "offset": 183,
+    "raw": "%1$00218s%3$hn%1$65318s%1$2s%11$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 218,
+          "terms": {}
+        },
+        "value_str": "218"
+      },
+      {
+        "dst": "r4",
+        "value": {
+          "const": 2,
+          "terms": {}
+        },
+        "value_str": "2"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 218; r4 = 2"
+  },
+  {
+    "offset": 218,
+    "raw": "%1$00264s%3$hn%1$65272s%1$*10$s%1$*10$s%17$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 264,
+          "terms": {}
+        },
+        "value_str": "264"
+      },
+      {
+        "dst": "r7",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r3": 2
+          }
+        },
+        "value_str": "2*r3"
+      }
+    ],
+    "reads": [
+      "r3",
+      "r3"
+    ],
+    "reads_out": false,
+    "text": "PC = 264; r7 = 2*r3"
+  },
+  {
+    "offset": 264,
+    "raw": "%1$00310s%3$hn%1$65226s%1$28672s%1$*16$s%7$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 310,
+          "terms": {}
+        },
+        "value_str": "310"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 28672,
+          "terms": {
+            "r6": 1
+          }
+        },
+        "value_str": "r6 + 28672"
+      }
+    ],
+    "reads": [
+      "r6"
+    ],
+    "reads_out": false,
+    "text": "PC = 310; r2 = r6 + 28672"
+  },
+  {
+    "offset": 310,
+    "raw": "%1$00347s%3$hn%1$65189s%1$*5$s%15$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 347,
+          "terms": {}
+        },
+        "value_str": "347"
+      },
+      {
+        "dst": "r6",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r1": 1
+          }
+        },
+        "value_str": "r1"
+      }
+    ],
+    "reads": [
+      "r1"
+    ],
+    "reads_out": false,
+    "text": "PC = 347; r6 = r1"
+  },
+  {
+    "offset": 347,
+    "raw": "%14$c%1$00419s%2$c%4$s%1$65499s%3$hn",
+    "kind": "BR",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 384,
+          "terms": {
+            "OUT": 1
+          }
+        },
+        "value_str": "OUT + 384"
+      }
+    ],
+    "reads": [],
+    "reads_out": true,
+    "text": "PC = OUT + 384"
+  },
+  {
+    "offset": 384,
+    "raw": "%1$00430s%3$hn%1$65106s%1$*10$s%1$*10$s%13$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 430,
+          "terms": {}
+        },
+        "value_str": "430"
+      },
+      {
+        "dst": "r5",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r3": 2
+          }
+        },
+        "value_str": "2*r3"
+      }
+    ],
+    "reads": [
+      "r3",
+      "r3"
+    ],
+    "reads_out": false,
+    "text": "PC = 430; r5 = 2*r3"
+  },
+  {
+    "offset": 430,
+    "raw": "%1$00468s%3$hn%1$65068s%1$65519s%7$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 468,
+          "terms": {}
+        },
+        "value_str": "468"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 65519,
+          "terms": {}
+        },
+        "value_str": "65519"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 468; r2 = 65519"
+  },
+  {
+    "offset": 468,
+    "raw": "%1$00505s%3$hn%1$65031s%1$*12$s%6$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 505,
+          "terms": {}
+        },
+        "value_str": "505"
+      },
+      {
+        "dst": "r1",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r4": 1
+          }
+        },
+        "value_str": "r4"
+      }
+    ],
+    "reads": [
+      "r4"
+    ],
+    "reads_out": false,
+    "text": "PC = 505; r1 = r4"
+  },
+  {
+    "offset": 505,
+    "raw": "%1$00543s%3$hn%1$64993s%1$65520s%7$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 543,
+          "terms": {}
+        },
+        "value_str": "543"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 65520,
+          "terms": {}
+        },
+        "value_str": "65520"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 543; r2 = 65520"
+  },
+  {
+    "offset": 543,
+    "raw": "%1$00580s%3$hn%1$64956s%1$*5$s%15$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 580,
+          "terms": {}
+        },
+        "value_str": "580"
+      },
+      {
+        "dst": "r6",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r1": 1
+          }
+        },
+        "value_str": "r1"
+      }
+    ],
+    "reads": [
+      "r1"
+    ],
+    "reads_out": false,
+    "text": "PC = 580; r6 = r1"
+  },
+  {
+    "offset": 580,
+    "raw": "%14$c%1$00186s%2$c%4$s%1$00429s%3$hn",
+    "kind": "BR",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 617,
+          "terms": {
+            "OUT": 1
+          }
+        },
+        "value_str": "OUT + 617"
+      }
+    ],
+    "reads": [],
+    "reads_out": true,
+    "text": "PC = OUT + 617"
+  },
+  {
+    "offset": 617,
+    "raw": "%1$00663s%3$hn%1$64873s%1$*12$s%1$*12$s%17$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 663,
+          "terms": {}
+        },
+        "value_str": "663"
+      },
+      {
+        "dst": "r7",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r4": 2
+          }
+        },
+        "value_str": "2*r4"
+      }
+    ],
+    "reads": [
+      "r4",
+      "r4"
+    ],
+    "reads_out": false,
+    "text": "PC = 663; r7 = 2*r4"
+  },
+  {
+    "offset": 663,
+    "raw": "%1$00709s%3$hn%1$64827s%1$28672s%1$*16$s%7$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 709,
+          "terms": {}
+        },
+        "value_str": "709"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 28672,
+          "terms": {
+            "r6": 1
+          }
+        },
+        "value_str": "r6 + 28672"
+      }
+    ],
+    "reads": [
+      "r6"
+    ],
+    "reads_out": false,
+    "text": "PC = 709; r2 = r6 + 28672"
+  },
+  {
+    "offset": 709,
+    "raw": "%1$00743s%3$hn%1$64793s%1$1s%6$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 743,
+          "terms": {}
+        },
+        "value_str": "743"
+      },
+      {
+        "dst": "r1",
+        "value": {
+          "const": 1,
+          "terms": {}
+        },
+        "value_str": "1"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 743; r1 = 1"
+  },
+  {
+    "offset": 743,
+    "raw": "%1$00789s%3$hn%1$64747s%1$*12$s%1$*10$s%13$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 789,
+          "terms": {}
+        },
+        "value_str": "789"
+      },
+      {
+        "dst": "r5",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r4": 1,
+            "r3": 1
+          }
+        },
+        "value_str": "r4 + r3"
+      }
+    ],
+    "reads": [
+      "r4",
+      "r3"
+    ],
+    "reads_out": false,
+    "text": "PC = 789; r5 = r4 + r3"
+  },
+  {
+    "offset": 789,
+    "raw": "%1$00430s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 430,
+          "terms": {}
+        },
+        "value_str": "430"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 430"
+  },
+  {
+    "offset": 804,
+    "raw": "%1$00847s%3$hn%1$64689s%1$*10$s%1$1s%11$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 847,
+          "terms": {}
+        },
+        "value_str": "847"
+      },
+      {
+        "dst": "r4",
+        "value": {
+          "const": 1,
+          "terms": {
+            "r3": 1
+          }
+        },
+        "value_str": "r3 + 1"
+      }
+    ],
+    "reads": [
+      "r3"
+    ],
+    "reads_out": false,
+    "text": "PC = 847; r4 = r3 + 1"
+  },
+  {
+    "offset": 847,
+    "raw": "%10$c%1$64869s%2$c%4$s%1$01549s%3$hn",
+    "kind": "BR",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 884,
+          "terms": {
+            "OUT": 1
+          }
+        },
+        "value_str": "OUT + 884"
+      }
+    ],
+    "reads": [],
+    "reads_out": true,
+    "text": "PC = OUT + 884"
+  },
+  {
+    "offset": 884,
+    "raw": "%1$00922s%3$hn%1$64614s%1$57344s%9$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 922,
+          "terms": {}
+        },
+        "value_str": "922"
+      },
+      {
+        "dst": "r3",
+        "value": {
+          "const": 57344,
+          "terms": {}
+        },
+        "value_str": "57344"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 922; r3 = 57344"
+  },
+  {
+    "offset": 922,
+    "raw": "%1$00957s%3$hn%1$64579s%1$0s%11$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 957,
+          "terms": {}
+        },
+        "value_str": "957"
+      },
+      {
+        "dst": "r4",
+        "value": {
+          "const": 0,
+          "terms": {}
+        },
+        "value_str": "0"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 957; r4 = 0"
+  },
+  {
+    "offset": 957,
+    "raw": "%1$00993s%3$hn%1$64543s%1$*8$s%7$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 993,
+          "terms": {}
+        },
+        "value_str": "993"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r2": 1
+          }
+        },
+        "value_str": "r2"
+      }
+    ],
+    "reads": [
+      "r2"
+    ],
+    "reads_out": false,
+    "text": "PC = 993; r2 = r2"
+  },
+  {
+    "offset": 993,
+    "raw": "%1$01030s%3$hn%1$64506s%1$*5$s%13$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1030,
+          "terms": {}
+        },
+        "value_str": "1030"
+      },
+      {
+        "dst": "r5",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r1": 1
+          }
+        },
+        "value_str": "r1"
+      }
+    ],
+    "reads": [
+      "r1"
+    ],
+    "reads_out": false,
+    "text": "PC = 1030; r5 = r1"
+  },
+  {
+    "offset": 1030,
+    "raw": "%12$c%1$00014s%2$c%4$s%1$01051s%3$hn",
+    "kind": "BR",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1067,
+          "terms": {
+            "OUT": 1
+          }
+        },
+        "value_str": "OUT + 1067"
+      }
+    ],
+    "reads": [],
+    "reads_out": true,
+    "text": "PC = OUT + 1067"
+  },
+  {
+    "offset": 1067,
+    "raw": "%1$01185s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1185,
+          "terms": {}
+        },
+        "value_str": "1185"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 1185"
+  },
+  {
+    "offset": 1082,
+    "raw": "%1$01129s%3$hn%1$64407s%1$*10$s%1$65535s%11$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1129,
+          "terms": {}
+        },
+        "value_str": "1129"
+      },
+      {
+        "dst": "r4",
+        "value": {
+          "const": 65535,
+          "terms": {
+            "r3": 1
+          }
+        },
+        "value_str": "r3 + 65535"
+      }
+    ],
+    "reads": [
+      "r3"
+    ],
+    "reads_out": false,
+    "text": "PC = 1129; r4 = r3 + 65535"
+  },
+  {
+    "offset": 1129,
+    "raw": "%1$01170s%3$hn%1$64366s%1$*8$s%1$1s%9$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1170,
+          "terms": {}
+        },
+        "value_str": "1170"
+      },
+      {
+        "dst": "r3",
+        "value": {
+          "const": 1,
+          "terms": {
+            "r2": 1
+          }
+        },
+        "value_str": "r2 + 1"
+      }
+    ],
+    "reads": [
+      "r2"
+    ],
+    "reads_out": false,
+    "text": "PC = 1170; r3 = r2 + 1"
+  },
+  {
+    "offset": 1170,
+    "raw": "%1$00957s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 957,
+          "terms": {}
+        },
+        "value_str": "957"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 957"
+  },
+  {
+    "offset": 1185,
+    "raw": "%1$01232s%3$hn%1$64304s%1$*10$s%1$00254s%17$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1232,
+          "terms": {}
+        },
+        "value_str": "1232"
+      },
+      {
+        "dst": "r7",
+        "value": {
+          "const": 254,
+          "terms": {
+            "r3": 1
+          }
+        },
+        "value_str": "r3 + 254"
+      }
+    ],
+    "reads": [
+      "r3"
+    ],
+    "reads_out": false,
+    "text": "PC = 1232; r7 = r3 + 254"
+  },
+  {
+    "offset": 1232,
+    "raw": "%16$c%1$00014s%2$c%4$s%1$01253s%3$hn",
+    "kind": "BR",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1269,
+          "terms": {
+            "OUT": 1
+          }
+        },
+        "value_str": "OUT + 1269"
+      }
+    ],
+    "reads": [],
+    "reads_out": true,
+    "text": "PC = OUT + 1269"
+  },
+  {
+    "offset": 1269,
+    "raw": "%1$01334s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1334,
+          "terms": {}
+        },
+        "value_str": "1334"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 1334"
+  },
+  {
+    "offset": 1284,
+    "raw": "%1$01319s%3$hn%1$64217s%1$5s%23$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1319,
+          "terms": {}
+        },
+        "value_str": "1319"
+      },
+      {
+        "dst": "r10",
+        "value": {
+          "const": 5,
+          "terms": {}
+        },
+        "value_str": "5"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 1319; r10 = 5"
+  },
+  {
+    "offset": 1319,
+    "raw": "%1$05081s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 5081,
+          "terms": {}
+        },
+        "value_str": "5081"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 5081"
+  },
+  {
+    "offset": 1334,
+    "raw": "%1$01368s%3$hn%1$64168s%1$0s%9$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1368,
+          "terms": {}
+        },
+        "value_str": "1368"
+      },
+      {
+        "dst": "r3",
+        "value": {
+          "const": 0,
+          "terms": {}
+        },
+        "value_str": "0"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 1368; r3 = 0"
+  },
+  {
+    "offset": 1368,
+    "raw": "%1$01403s%3$hn%1$64133s%1$0s%11$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1403,
+          "terms": {}
+        },
+        "value_str": "1403"
+      },
+      {
+        "dst": "r4",
+        "value": {
+          "const": 0,
+          "terms": {}
+        },
+        "value_str": "0"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 1403; r4 = 0"
+  },
+  {
+    "offset": 1403,
+    "raw": "%1$01441s%3$hn%1$64095s%1$61696s%7$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1441,
+          "terms": {}
+        },
+        "value_str": "1441"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 61696,
+          "terms": {}
+        },
+        "value_str": "61696"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 1441; r2 = 61696"
+  },
+  {
+    "offset": 1441,
+    "raw": "%1$01478s%3$hn%1$64058s%1$*5$s%13$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1478,
+          "terms": {}
+        },
+        "value_str": "1478"
+      },
+      {
+        "dst": "r5",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r1": 1
+          }
+        },
+        "value_str": "r1"
+      }
+    ],
+    "reads": [
+      "r1"
+    ],
+    "reads_out": false,
+    "text": "PC = 1478; r5 = r1"
+  },
+  {
+    "offset": 1478,
+    "raw": "%1$01513s%3$hn%1$64023s%1$1s%15$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1513,
+          "terms": {}
+        },
+        "value_str": "1513"
+      },
+      {
+        "dst": "r6",
+        "value": {
+          "const": 1,
+          "terms": {}
+        },
+        "value_str": "1"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 1513; r6 = 1"
+  },
+  {
+    "offset": 1513,
+    "raw": "%1$01548s%3$hn%1$63988s%1$0s%23$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1548,
+          "terms": {}
+        },
+        "value_str": "1548"
+      },
+      {
+        "dst": "r10",
+        "value": {
+          "const": 0,
+          "terms": {}
+        },
+        "value_str": "0"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 1548; r10 = 0"
+  },
+  {
+    "offset": 1548,
+    "raw": "%1$01593s%3$hn%1$63943s%1$57344s%1$*8$s%7$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1593,
+          "terms": {}
+        },
+        "value_str": "1593"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 57344,
+          "terms": {
+            "r2": 1
+          }
+        },
+        "value_str": "r2 + 57344"
+      }
+    ],
+    "reads": [
+      "r2"
+    ],
+    "reads_out": false,
+    "text": "PC = 1593; r2 = r2 + 57344"
+  },
+  {
+    "offset": 1593,
+    "raw": "%1$01630s%3$hn%1$63906s%1$*5$s%17$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1630,
+          "terms": {}
+        },
+        "value_str": "1630"
+      },
+      {
+        "dst": "r7",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r1": 1
+          }
+        },
+        "value_str": "r1"
+      }
+    ],
+    "reads": [
+      "r1"
+    ],
+    "reads_out": false,
+    "text": "PC = 1630; r7 = r1"
+  },
+  {
+    "offset": 1630,
+    "raw": "%16$c%1$00014s%2$c%4$s%1$01651s%3$hn",
+    "kind": "BR",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1667,
+          "terms": {
+            "OUT": 1
+          }
+        },
+        "value_str": "OUT + 1667"
+      }
+    ],
+    "reads": [],
+    "reads_out": true,
+    "text": "PC = OUT + 1667"
+  },
+  {
+    "offset": 1667,
+    "raw": "%1$03479s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3479,
+          "terms": {}
+        },
+        "value_str": "3479"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 3479"
+  },
+  {
+    "offset": 1682,
+    "raw": "%1$01723s%3$hn%1$63813s%1$*8$s%1$1s%9$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1723,
+          "terms": {}
+        },
+        "value_str": "1723"
+      },
+      {
+        "dst": "r3",
+        "value": {
+          "const": 1,
+          "terms": {
+            "r2": 1
+          }
+        },
+        "value_str": "r2 + 1"
+      }
+    ],
+    "reads": [
+      "r2"
+    ],
+    "reads_out": false,
+    "text": "PC = 1723; r3 = r2 + 1"
+  },
+  {
+    "offset": 1723,
+    "raw": "%1$01770s%3$hn%1$63766s%1$*16$s%1$65419s%19$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1770,
+          "terms": {}
+        },
+        "value_str": "1770"
+      },
+      {
+        "dst": "r8",
+        "value": {
+          "const": 65419,
+          "terms": {
+            "r6": 1
+          }
+        },
+        "value_str": "r6 + 65419"
+      }
+    ],
+    "reads": [
+      "r6"
+    ],
+    "reads_out": false,
+    "text": "PC = 1770; r8 = r6 + 65419"
+  },
+  {
+    "offset": 1770,
+    "raw": "%18$c%1$00053s%2$c%4$s%1$01752s%3$hn",
+    "kind": "BR",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1807,
+          "terms": {
+            "OUT": 1
+          }
+        },
+        "value_str": "OUT + 1807"
+      }
+    ],
+    "reads": [],
+    "reads_out": true,
+    "text": "PC = OUT + 1807"
+  },
+  {
+    "offset": 1807,
+    "raw": "%1$01846s%3$hn%1$63690s%1$65520s%17$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1846,
+          "terms": {}
+        },
+        "value_str": "1846"
+      },
+      {
+        "dst": "r7",
+        "value": {
+          "const": 65520,
+          "terms": {}
+        },
+        "value_str": "65520"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 1846; r7 = 65520"
+  },
+  {
+    "offset": 1846,
+    "raw": "%1$02373s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2373,
+          "terms": {}
+        },
+        "value_str": "2373"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 2373"
+  },
+  {
+    "offset": 1861,
+    "raw": "%1$01908s%3$hn%1$63628s%1$*16$s%1$65422s%19$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1908,
+          "terms": {}
+        },
+        "value_str": "1908"
+      },
+      {
+        "dst": "r8",
+        "value": {
+          "const": 65422,
+          "terms": {
+            "r6": 1
+          }
+        },
+        "value_str": "r6 + 65422"
+      }
+    ],
+    "reads": [
+      "r6"
+    ],
+    "reads_out": false,
+    "text": "PC = 1908; r8 = r6 + 65422"
+  },
+  {
+    "offset": 1908,
+    "raw": "%18$c%1$00049s%2$c%4$s%1$01894s%3$hn",
+    "kind": "BR",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1945,
+          "terms": {
+            "OUT": 1
+          }
+        },
+        "value_str": "OUT + 1945"
+      }
+    ],
+    "reads": [],
+    "reads_out": true,
+    "text": "PC = OUT + 1945"
+  },
+  {
+    "offset": 1945,
+    "raw": "%1$01980s%3$hn%1$63556s%1$1s%17$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1980,
+          "terms": {}
+        },
+        "value_str": "1980"
+      },
+      {
+        "dst": "r7",
+        "value": {
+          "const": 1,
+          "terms": {}
+        },
+        "value_str": "1"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 1980; r7 = 1"
+  },
+  {
+    "offset": 1980,
+    "raw": "%1$02373s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2373,
+          "terms": {}
+        },
+        "value_str": "2373"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 2373"
+  },
+  {
+    "offset": 1995,
+    "raw": "%1$02042s%3$hn%1$63494s%1$*16$s%1$65436s%19$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2042,
+          "terms": {}
+        },
+        "value_str": "2042"
+      },
+      {
+        "dst": "r8",
+        "value": {
+          "const": 65436,
+          "terms": {
+            "r6": 1
+          }
+        },
+        "value_str": "r6 + 65436"
+      }
+    ],
+    "reads": [
+      "r6"
+    ],
+    "reads_out": false,
+    "text": "PC = 2042; r8 = r6 + 65436"
+  },
+  {
+    "offset": 2042,
+    "raw": "%18$c%1$00050s%2$c%4$s%1$02027s%3$hn",
+    "kind": "BR",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2079,
+          "terms": {
+            "OUT": 1
+          }
+        },
+        "value_str": "OUT + 2079"
+      }
+    ],
+    "reads": [],
+    "reads_out": true,
+    "text": "PC = OUT + 2079"
+  },
+  {
+    "offset": 2079,
+    "raw": "%1$02115s%3$hn%1$63421s%1$16s%17$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2115,
+          "terms": {}
+        },
+        "value_str": "2115"
+      },
+      {
+        "dst": "r7",
+        "value": {
+          "const": 16,
+          "terms": {}
+        },
+        "value_str": "16"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 2115; r7 = 16"
+  },
+  {
+    "offset": 2115,
+    "raw": "%1$02373s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2373,
+          "terms": {}
+        },
+        "value_str": "2373"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 2373"
+  },
+  {
+    "offset": 2130,
+    "raw": "%1$02177s%3$hn%1$63359s%1$*16$s%1$65428s%19$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2177,
+          "terms": {}
+        },
+        "value_str": "2177"
+      },
+      {
+        "dst": "r8",
+        "value": {
+          "const": 65428,
+          "terms": {
+            "r6": 1
+          }
+        },
+        "value_str": "r6 + 65428"
+      }
+    ],
+    "reads": [
+      "r6"
+    ],
+    "reads_out": false,
+    "text": "PC = 2177; r8 = r6 + 65428"
+  },
+  {
+    "offset": 2177,
+    "raw": "%18$c%1$00053s%2$c%4$s%1$02159s%3$hn",
+    "kind": "BR",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2214,
+          "terms": {
+            "OUT": 1
+          }
+        },
+        "value_str": "OUT + 2214"
+      }
+    ],
+    "reads": [],
+    "reads_out": true,
+    "text": "PC = OUT + 2214"
+  },
+  {
+    "offset": 2214,
+    "raw": "%1$02253s%3$hn%1$63283s%1$65535s%17$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2253,
+          "terms": {}
+        },
+        "value_str": "2253"
+      },
+      {
+        "dst": "r7",
+        "value": {
+          "const": 65535,
+          "terms": {}
+        },
+        "value_str": "65535"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 2253; r7 = 65535"
+  },
+  {
+    "offset": 2253,
+    "raw": "%1$02373s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2373,
+          "terms": {}
+        },
+        "value_str": "2373"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 2373"
+  },
+  {
+    "offset": 2268,
+    "raw": "%1$02303s%3$hn%1$63233s%1$0s%15$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2303,
+          "terms": {}
+        },
+        "value_str": "2303"
+      },
+      {
+        "dst": "r6",
+        "value": {
+          "const": 0,
+          "terms": {}
+        },
+        "value_str": "0"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 2303; r6 = 0"
+  },
+  {
+    "offset": 2303,
+    "raw": "%1$02338s%3$hn%1$63198s%1$0s%17$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2338,
+          "terms": {}
+        },
+        "value_str": "2338"
+      },
+      {
+        "dst": "r7",
+        "value": {
+          "const": 0,
+          "terms": {}
+        },
+        "value_str": "0"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 2338; r7 = 0"
+  },
+  {
+    "offset": 2338,
+    "raw": "%1$02373s%3$hn%1$63163s%1$1s%23$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2373,
+          "terms": {}
+        },
+        "value_str": "2373"
+      },
+      {
+        "dst": "r10",
+        "value": {
+          "const": 1,
+          "terms": {}
+        },
+        "value_str": "1"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 2373; r10 = 1"
+  },
+  {
+    "offset": 2373,
+    "raw": "%1$02419s%3$hn%1$63117s%1$*12$s%1$*16$s%13$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2419,
+          "terms": {}
+        },
+        "value_str": "2419"
+      },
+      {
+        "dst": "r5",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r4": 1,
+            "r6": 1
+          }
+        },
+        "value_str": "r4 + r6"
+      }
+    ],
+    "reads": [
+      "r4",
+      "r6"
+    ],
+    "reads_out": false,
+    "text": "PC = 2419; r5 = r4 + r6"
+  },
+  {
+    "offset": 2419,
+    "raw": "%1$02457s%3$hn%1$63079s%1$65519s%7$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2457,
+          "terms": {}
+        },
+        "value_str": "2457"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 65519,
+          "terms": {}
+        },
+        "value_str": "65519"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 2457; r2 = 65519"
+  },
+  {
+    "offset": 2457,
+    "raw": "%1$02494s%3$hn%1$63042s%1$*12$s%6$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2494,
+          "terms": {}
+        },
+        "value_str": "2494"
+      },
+      {
+        "dst": "r1",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r4": 1
+          }
+        },
+        "value_str": "r4"
+      }
+    ],
+    "reads": [
+      "r4"
+    ],
+    "reads_out": false,
+    "text": "PC = 2494; r1 = r4"
+  },
+  {
+    "offset": 2494,
+    "raw": "%1$02532s%3$hn%1$63004s%1$65520s%7$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2532,
+          "terms": {}
+        },
+        "value_str": "2532"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 65520,
+          "terms": {}
+        },
+        "value_str": "65520"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 2532; r2 = 65520"
+  },
+  {
+    "offset": 2532,
+    "raw": "%1$02569s%3$hn%1$62967s%1$*5$s%17$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2569,
+          "terms": {}
+        },
+        "value_str": "2569"
+      },
+      {
+        "dst": "r7",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r1": 1
+          }
+        },
+        "value_str": "r1"
+      }
+    ],
+    "reads": [
+      "r1"
+    ],
+    "reads_out": false,
+    "text": "PC = 2569; r7 = r1"
+  },
+  {
+    "offset": 2569,
+    "raw": "%16$c%1$00822s%2$c%4$s%1$01782s%3$hn",
+    "kind": "BR",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2606,
+          "terms": {
+            "OUT": 1
+          }
+        },
+        "value_str": "OUT + 2606"
+      }
+    ],
+    "reads": [],
+    "reads_out": true,
+    "text": "PC = OUT + 2606"
+  },
+  {
+    "offset": 2606,
+    "raw": "%1$02652s%3$hn%1$62884s%1$61440s%1$*12$s%7$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2652,
+          "terms": {}
+        },
+        "value_str": "2652"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 61440,
+          "terms": {
+            "r4": 1
+          }
+        },
+        "value_str": "r4 + 61440"
+      }
+    ],
+    "reads": [
+      "r4"
+    ],
+    "reads_out": false,
+    "text": "PC = 2652; r2 = r4 + 61440"
+  },
+  {
+    "offset": 2652,
+    "raw": "%1$02689s%3$hn%1$62847s%1$*5$s%17$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2689,
+          "terms": {}
+        },
+        "value_str": "2689"
+      },
+      {
+        "dst": "r7",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r1": 1
+          }
+        },
+        "value_str": "r1"
+      }
+    ],
+    "reads": [
+      "r1"
+    ],
+    "reads_out": false,
+    "text": "PC = 2689; r7 = r1"
+  },
+  {
+    "offset": 2689,
+    "raw": "%1$02727s%3$hn%1$62809s%1$65519s%7$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2727,
+          "terms": {}
+        },
+        "value_str": "2727"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 65519,
+          "terms": {}
+        },
+        "value_str": "65519"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 2727; r2 = 65519"
+  },
+  {
+    "offset": 2727,
+    "raw": "%1$02764s%3$hn%1$62772s%1$*16$s%6$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2764,
+          "terms": {}
+        },
+        "value_str": "2764"
+      },
+      {
+        "dst": "r1",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r6": 1
+          }
+        },
+        "value_str": "r6"
+      }
+    ],
+    "reads": [
+      "r6"
+    ],
+    "reads_out": false,
+    "text": "PC = 2764; r1 = r6"
+  },
+  {
+    "offset": 2764,
+    "raw": "%1$02802s%3$hn%1$62734s%1$65520s%7$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2802,
+          "terms": {}
+        },
+        "value_str": "2802"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 65520,
+          "terms": {}
+        },
+        "value_str": "65520"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 2802; r2 = 65520"
+  },
+  {
+    "offset": 2802,
+    "raw": "%1$02836s%3$hn%1$62700s%1$0s%6$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2836,
+          "terms": {}
+        },
+        "value_str": "2836"
+      },
+      {
+        "dst": "r1",
+        "value": {
+          "const": 0,
+          "terms": {}
+        },
+        "value_str": "0"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 2836; r1 = 0"
+  },
+  {
+    "offset": 2836,
+    "raw": "%1$02874s%3$hn%1$62662s%1$65519s%7$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2874,
+          "terms": {}
+        },
+        "value_str": "2874"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 65519,
+          "terms": {}
+        },
+        "value_str": "65519"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 2874; r2 = 65519"
+  },
+  {
+    "offset": 2874,
+    "raw": "%1$02911s%3$hn%1$62625s%1$*5$s%17$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2911,
+          "terms": {}
+        },
+        "value_str": "2911"
+      },
+      {
+        "dst": "r7",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r1": 1
+          }
+        },
+        "value_str": "r1"
+      }
+    ],
+    "reads": [
+      "r1"
+    ],
+    "reads_out": false,
+    "text": "PC = 2911; r7 = r1"
+  },
+  {
+    "offset": 2911,
+    "raw": "%1$02957s%3$hn%1$62579s%1$*16$s%1$*16$s%17$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 2957,
+          "terms": {}
+        },
+        "value_str": "2957"
+      },
+      {
+        "dst": "r7",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r6": 2
+          }
+        },
+        "value_str": "2*r6"
+      }
+    ],
+    "reads": [
+      "r6",
+      "r6"
+    ],
+    "reads_out": false,
+    "text": "PC = 2957; r7 = 2*r6"
+  },
+  {
+    "offset": 2957,
+    "raw": "%1$03003s%3$hn%1$62533s%1$28672s%1$*16$s%7$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3003,
+          "terms": {}
+        },
+        "value_str": "3003"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 28672,
+          "terms": {
+            "r6": 1
+          }
+        },
+        "value_str": "r6 + 28672"
+      }
+    ],
+    "reads": [
+      "r6"
+    ],
+    "reads_out": false,
+    "text": "PC = 3003; r2 = r6 + 28672"
+  },
+  {
+    "offset": 3003,
+    "raw": "%1$03040s%3$hn%1$62496s%1$*5$s%17$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3040,
+          "terms": {}
+        },
+        "value_str": "3040"
+      },
+      {
+        "dst": "r7",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r1": 1
+          }
+        },
+        "value_str": "r1"
+      }
+    ],
+    "reads": [
+      "r1"
+    ],
+    "reads_out": false,
+    "text": "PC = 3040; r7 = r1"
+  },
+  {
+    "offset": 3040,
+    "raw": "%16$c%1$00266s%2$c%4$s%1$02809s%3$hn",
+    "kind": "BR",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3077,
+          "terms": {
+            "OUT": 1
+          }
+        },
+        "value_str": "OUT + 3077"
+      }
+    ],
+    "reads": [],
+    "reads_out": true,
+    "text": "PC = OUT + 3077"
+  },
+  {
+    "offset": 3077,
+    "raw": "%1$03120s%3$hn%1$62416s%1$*10$s%1$1s%17$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3120,
+          "terms": {}
+        },
+        "value_str": "3120"
+      },
+      {
+        "dst": "r7",
+        "value": {
+          "const": 1,
+          "terms": {
+            "r3": 1
+          }
+        },
+        "value_str": "r3 + 1"
+      }
+    ],
+    "reads": [
+      "r3"
+    ],
+    "reads_out": false,
+    "text": "PC = 3120; r7 = r3 + 1"
+  },
+  {
+    "offset": 3120,
+    "raw": "%1$03166s%3$hn%1$62370s%1$61698s%1$*16$s%7$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3166,
+          "terms": {}
+        },
+        "value_str": "3166"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 61698,
+          "terms": {
+            "r6": 1
+          }
+        },
+        "value_str": "r6 + 61698"
+      }
+    ],
+    "reads": [
+      "r6"
+    ],
+    "reads_out": false,
+    "text": "PC = 3166; r2 = r6 + 61698"
+  },
+  {
+    "offset": 3166,
+    "raw": "%1$03203s%3$hn%1$62333s%1$*5$s%17$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3203,
+          "terms": {}
+        },
+        "value_str": "3203"
+      },
+      {
+        "dst": "r7",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r1": 1
+          }
+        },
+        "value_str": "r1"
+      }
+    ],
+    "reads": [
+      "r1"
+    ],
+    "reads_out": false,
+    "text": "PC = 3203; r7 = r1"
+  },
+  {
+    "offset": 3203,
+    "raw": "%1$03249s%3$hn%1$62287s%1$*16$s%1$*12$s%17$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3249,
+          "terms": {}
+        },
+        "value_str": "3249"
+      },
+      {
+        "dst": "r7",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r6": 1,
+            "r4": 1
+          }
+        },
+        "value_str": "r6 + r4"
+      }
+    ],
+    "reads": [
+      "r6",
+      "r4"
+    ],
+    "reads_out": false,
+    "text": "PC = 3249; r7 = r6 + r4"
+  },
+  {
+    "offset": 3249,
+    "raw": "%16$c%1$00042s%2$c%4$s%1$03242s%3$hn",
+    "kind": "BR",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3286,
+          "terms": {
+            "OUT": 1
+          }
+        },
+        "value_str": "OUT + 3286"
+      }
+    ],
+    "reads": [],
+    "reads_out": true,
+    "text": "PC = OUT + 3286"
+  },
+  {
+    "offset": 3286,
+    "raw": "%1$03329s%3$hn%1$62207s%1$*10$s%1$1s%11$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3329,
+          "terms": {}
+        },
+        "value_str": "3329"
+      },
+      {
+        "dst": "r4",
+        "value": {
+          "const": 1,
+          "terms": {
+            "r3": 1
+          }
+        },
+        "value_str": "r3 + 1"
+      }
+    ],
+    "reads": [
+      "r3"
+    ],
+    "reads_out": false,
+    "text": "PC = 3329; r4 = r3 + 1"
+  },
+  {
+    "offset": 3329,
+    "raw": "%1$01548s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1548,
+          "terms": {}
+        },
+        "value_str": "1548"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 1548"
+  },
+  {
+    "offset": 3344,
+    "raw": "%1$03379s%3$hn%1$62157s%1$0s%15$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3379,
+          "terms": {}
+        },
+        "value_str": "3379"
+      },
+      {
+        "dst": "r6",
+        "value": {
+          "const": 0,
+          "terms": {}
+        },
+        "value_str": "0"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 3379; r6 = 0"
+  },
+  {
+    "offset": 3379,
+    "raw": "%1$03414s%3$hn%1$62122s%1$2s%23$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3414,
+          "terms": {}
+        },
+        "value_str": "3414"
+      },
+      {
+        "dst": "r10",
+        "value": {
+          "const": 2,
+          "terms": {}
+        },
+        "value_str": "2"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 3414; r10 = 2"
+  },
+  {
+    "offset": 3414,
+    "raw": "%1$01548s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 1548,
+          "terms": {}
+        },
+        "value_str": "1548"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 1548"
+  },
+  {
+    "offset": 3429,
+    "raw": "%1$03464s%3$hn%1$62072s%1$4s%23$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3464,
+          "terms": {}
+        },
+        "value_str": "3464"
+      },
+      {
+        "dst": "r10",
+        "value": {
+          "const": 4,
+          "terms": {}
+        },
+        "value_str": "4"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 3464; r10 = 4"
+  },
+  {
+    "offset": 3464,
+    "raw": "%1$65534s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 65534,
+          "terms": {}
+        },
+        "value_str": "65534"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 65534"
+  },
+  {
+    "offset": 3479,
+    "raw": "%14$c%1$00014s%2$c%4$s%1$03500s%3$hn",
+    "kind": "BR",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3516,
+          "terms": {
+            "OUT": 1
+          }
+        },
+        "value_str": "OUT + 3516"
+      }
+    ],
+    "reads": [],
+    "reads_out": true,
+    "text": "PC = OUT + 3516"
+  },
+  {
+    "offset": 3516,
+    "raw": "%1$05081s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 5081,
+          "terms": {}
+        },
+        "value_str": "5081"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 5081"
+  },
+  {
+    "offset": 3531,
+    "raw": "%1$03578s%3$hn%1$61958s%1$*10$s%1$65527s%17$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3578,
+          "terms": {}
+        },
+        "value_str": "3578"
+      },
+      {
+        "dst": "r7",
+        "value": {
+          "const": 65527,
+          "terms": {
+            "r3": 1
+          }
+        },
+        "value_str": "r3 + 65527"
+      }
+    ],
+    "reads": [
+      "r3"
+    ],
+    "reads_out": false,
+    "text": "PC = 3578; r7 = r3 + 65527"
+  },
+  {
+    "offset": 3578,
+    "raw": "%16$c%1$00014s%2$c%4$s%1$03599s%3$hn",
+    "kind": "BR",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3615,
+          "terms": {
+            "OUT": 1
+          }
+        },
+        "value_str": "OUT + 3615"
+      }
+    ],
+    "reads": [],
+    "reads_out": true,
+    "text": "PC = OUT + 3615"
+  },
+  {
+    "offset": 3615,
+    "raw": "%1$03680s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3680,
+          "terms": {}
+        },
+        "value_str": "3680"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 3680"
+  },
+  {
+    "offset": 3630,
+    "raw": "%1$03665s%3$hn%1$61871s%1$3s%23$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3665,
+          "terms": {}
+        },
+        "value_str": "3665"
+      },
+      {
+        "dst": "r10",
+        "value": {
+          "const": 3,
+          "terms": {}
+        },
+        "value_str": "3"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 3665; r10 = 3"
+  },
+  {
+    "offset": 3665,
+    "raw": "%1$05081s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 5081,
+          "terms": {}
+        },
+        "value_str": "5081"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 5081"
+  },
+  {
+    "offset": 3680,
+    "raw": "%1$03714s%3$hn%1$61822s%1$0s%9$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3714,
+          "terms": {}
+        },
+        "value_str": "3714"
+      },
+      {
+        "dst": "r3",
+        "value": {
+          "const": 0,
+          "terms": {}
+        },
+        "value_str": "0"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 3714; r3 = 0"
+  },
+  {
+    "offset": 3714,
+    "raw": "%1$03749s%3$hn%1$61787s%1$0s%11$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3749,
+          "terms": {}
+        },
+        "value_str": "3749"
+      },
+      {
+        "dst": "r4",
+        "value": {
+          "const": 0,
+          "terms": {}
+        },
+        "value_str": "0"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 3749; r4 = 0"
+  },
+  {
+    "offset": 3749,
+    "raw": "%1$03795s%3$hn%1$61741s%1$*8$s%1$65497s%13$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3795,
+          "terms": {}
+        },
+        "value_str": "3795"
+      },
+      {
+        "dst": "r5",
+        "value": {
+          "const": 65497,
+          "terms": {
+            "r2": 1
+          }
+        },
+        "value_str": "r2 + 65497"
+      }
+    ],
+    "reads": [
+      "r2"
+    ],
+    "reads_out": false,
+    "text": "PC = 3795; r5 = r2 + 65497"
+  },
+  {
+    "offset": 3795,
+    "raw": "%12$c%1$00014s%2$c%4$s%1$03816s%3$hn",
+    "kind": "BR",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3832,
+          "terms": {
+            "OUT": 1
+          }
+        },
+        "value_str": "OUT + 3832"
+      }
+    ],
+    "reads": [],
+    "reads_out": true,
+    "text": "PC = OUT + 3832"
+  },
+  {
+    "offset": 3832,
+    "raw": "%1$04987s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4987,
+          "terms": {}
+        },
+        "value_str": "4987"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 4987"
+  },
+  {
+    "offset": 3847,
+    "raw": "%1$03882s%3$hn%1$61654s%1$4s%15$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3882,
+          "terms": {}
+        },
+        "value_str": "3882"
+      },
+      {
+        "dst": "r6",
+        "value": {
+          "const": 4,
+          "terms": {}
+        },
+        "value_str": "4"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 3882; r6 = 4"
+  },
+  {
+    "offset": 3882,
+    "raw": "%1$03917s%3$hn%1$61619s%1$0s%13$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3917,
+          "terms": {}
+        },
+        "value_str": "3917"
+      },
+      {
+        "dst": "r5",
+        "value": {
+          "const": 0,
+          "terms": {}
+        },
+        "value_str": "0"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 3917; r5 = 0"
+  },
+  {
+    "offset": 3917,
+    "raw": "%1$03963s%3$hn%1$61573s%1$*12$s%1$*12$s%13$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3963,
+          "terms": {}
+        },
+        "value_str": "3963"
+      },
+      {
+        "dst": "r5",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r4": 2
+          }
+        },
+        "value_str": "2*r4"
+      }
+    ],
+    "reads": [
+      "r4",
+      "r4"
+    ],
+    "reads_out": false,
+    "text": "PC = 3963; r5 = 2*r4"
+  },
+  {
+    "offset": 3963,
+    "raw": "%1$04009s%3$hn%1$61527s%1$*12$s%1$*12$s%13$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4009,
+          "terms": {}
+        },
+        "value_str": "4009"
+      },
+      {
+        "dst": "r5",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r4": 2
+          }
+        },
+        "value_str": "2*r4"
+      }
+    ],
+    "reads": [
+      "r4",
+      "r4"
+    ],
+    "reads_out": false,
+    "text": "PC = 4009; r5 = 2*r4"
+  },
+  {
+    "offset": 4009,
+    "raw": "%1$04055s%3$hn%1$61481s%1$57344s%1$*10$s%7$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4055,
+          "terms": {}
+        },
+        "value_str": "4055"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 57344,
+          "terms": {
+            "r3": 1
+          }
+        },
+        "value_str": "r3 + 57344"
+      }
+    ],
+    "reads": [
+      "r3"
+    ],
+    "reads_out": false,
+    "text": "PC = 4055; r2 = r3 + 57344"
+  },
+  {
+    "offset": 4055,
+    "raw": "%1$04092s%3$hn%1$61444s%1$*5$s%17$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4092,
+          "terms": {}
+        },
+        "value_str": "4092"
+      },
+      {
+        "dst": "r7",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r1": 1
+          }
+        },
+        "value_str": "r1"
+      }
+    ],
+    "reads": [
+      "r1"
+    ],
+    "reads_out": false,
+    "text": "PC = 4092; r7 = r1"
+  },
+  {
+    "offset": 4092,
+    "raw": "%1$04139s%3$hn%1$61397s%1$*16$s%1$65419s%19$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4139,
+          "terms": {}
+        },
+        "value_str": "4139"
+      },
+      {
+        "dst": "r8",
+        "value": {
+          "const": 65419,
+          "terms": {
+            "r6": 1
+          }
+        },
+        "value_str": "r6 + 65419"
+      }
+    ],
+    "reads": [
+      "r6"
+    ],
+    "reads_out": false,
+    "text": "PC = 4139; r8 = r6 + 65419"
+  },
+  {
+    "offset": 4139,
+    "raw": "%18$c%1$00014s%2$c%4$s%1$04160s%3$hn",
+    "kind": "BR",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4176,
+          "terms": {
+            "OUT": 1
+          }
+        },
+        "value_str": "OUT + 4176"
+      }
+    ],
+    "reads": [],
+    "reads_out": true,
+    "text": "PC = OUT + 4176"
+  },
+  {
+    "offset": 4176,
+    "raw": "%1$04632s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4632,
+          "terms": {}
+        },
+        "value_str": "4632"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 4632"
+  },
+  {
+    "offset": 4191,
+    "raw": "%1$04238s%3$hn%1$61298s%1$*16$s%1$65422s%19$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4238,
+          "terms": {}
+        },
+        "value_str": "4238"
+      },
+      {
+        "dst": "r8",
+        "value": {
+          "const": 65422,
+          "terms": {
+            "r6": 1
+          }
+        },
+        "value_str": "r6 + 65422"
+      }
+    ],
+    "reads": [
+      "r6"
+    ],
+    "reads_out": false,
+    "text": "PC = 4238; r8 = r6 + 65422"
+  },
+  {
+    "offset": 4238,
+    "raw": "%18$c%1$00057s%2$c%4$s%1$04216s%3$hn",
+    "kind": "BR",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4275,
+          "terms": {
+            "OUT": 1
+          }
+        },
+        "value_str": "OUT + 4275"
+      }
+    ],
+    "reads": [],
+    "reads_out": true,
+    "text": "PC = OUT + 4275"
+  },
+  {
+    "offset": 4275,
+    "raw": "%1$04318s%3$hn%1$61218s%1$*12$s%1$1s%13$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4318,
+          "terms": {}
+        },
+        "value_str": "4318"
+      },
+      {
+        "dst": "r5",
+        "value": {
+          "const": 1,
+          "terms": {
+            "r4": 1
+          }
+        },
+        "value_str": "r4 + 1"
+      }
+    ],
+    "reads": [
+      "r4"
+    ],
+    "reads_out": false,
+    "text": "PC = 4318; r5 = r4 + 1"
+  },
+  {
+    "offset": 4318,
+    "raw": "%1$04632s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4632,
+          "terms": {}
+        },
+        "value_str": "4632"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 4632"
+  },
+  {
+    "offset": 4333,
+    "raw": "%1$04380s%3$hn%1$61156s%1$*16$s%1$65436s%19$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4380,
+          "terms": {}
+        },
+        "value_str": "4380"
+      },
+      {
+        "dst": "r8",
+        "value": {
+          "const": 65436,
+          "terms": {
+            "r6": 1
+          }
+        },
+        "value_str": "r6 + 65436"
+      }
+    ],
+    "reads": [
+      "r6"
+    ],
+    "reads_out": false,
+    "text": "PC = 4380; r8 = r6 + 65436"
+  },
+  {
+    "offset": 4380,
+    "raw": "%18$c%1$00057s%2$c%4$s%1$04358s%3$hn",
+    "kind": "BR",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4417,
+          "terms": {
+            "OUT": 1
+          }
+        },
+        "value_str": "OUT + 4417"
+      }
+    ],
+    "reads": [],
+    "reads_out": true,
+    "text": "PC = OUT + 4417"
+  },
+  {
+    "offset": 4417,
+    "raw": "%1$04460s%3$hn%1$61076s%1$*12$s%1$2s%13$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4460,
+          "terms": {}
+        },
+        "value_str": "4460"
+      },
+      {
+        "dst": "r5",
+        "value": {
+          "const": 2,
+          "terms": {
+            "r4": 1
+          }
+        },
+        "value_str": "r4 + 2"
+      }
+    ],
+    "reads": [
+      "r4"
+    ],
+    "reads_out": false,
+    "text": "PC = 4460; r5 = r4 + 2"
+  },
+  {
+    "offset": 4460,
+    "raw": "%1$04632s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4632,
+          "terms": {}
+        },
+        "value_str": "4632"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 4632"
+  },
+  {
+    "offset": 4475,
+    "raw": "%1$04522s%3$hn%1$61014s%1$*16$s%1$65428s%19$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4522,
+          "terms": {}
+        },
+        "value_str": "4522"
+      },
+      {
+        "dst": "r8",
+        "value": {
+          "const": 65428,
+          "terms": {
+            "r6": 1
+          }
+        },
+        "value_str": "r6 + 65428"
+      }
+    ],
+    "reads": [
+      "r6"
+    ],
+    "reads_out": false,
+    "text": "PC = 4522; r8 = r6 + 65428"
+  },
+  {
+    "offset": 4522,
+    "raw": "%18$c%1$00057s%2$c%4$s%1$04500s%3$hn",
+    "kind": "BR",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4559,
+          "terms": {
+            "OUT": 1
+          }
+        },
+        "value_str": "OUT + 4559"
+      }
+    ],
+    "reads": [],
+    "reads_out": true,
+    "text": "PC = OUT + 4559"
+  },
+  {
+    "offset": 4559,
+    "raw": "%1$04602s%3$hn%1$60934s%1$*12$s%1$3s%13$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4602,
+          "terms": {}
+        },
+        "value_str": "4602"
+      },
+      {
+        "dst": "r5",
+        "value": {
+          "const": 3,
+          "terms": {
+            "r4": 1
+          }
+        },
+        "value_str": "r4 + 3"
+      }
+    ],
+    "reads": [
+      "r4"
+    ],
+    "reads_out": false,
+    "text": "PC = 4602; r5 = r4 + 3"
+  },
+  {
+    "offset": 4602,
+    "raw": "%1$04632s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4632,
+          "terms": {}
+        },
+        "value_str": "4632"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 4632"
+  },
+  {
+    "offset": 4617,
+    "raw": "%1$05081s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 5081,
+          "terms": {}
+        },
+        "value_str": "5081"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 5081"
+  },
+  {
+    "offset": 4632,
+    "raw": "%1$04675s%3$hn%1$60861s%1$*10$s%1$1s%11$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4675,
+          "terms": {}
+        },
+        "value_str": "4675"
+      },
+      {
+        "dst": "r4",
+        "value": {
+          "const": 1,
+          "terms": {
+            "r3": 1
+          }
+        },
+        "value_str": "r3 + 1"
+      }
+    ],
+    "reads": [
+      "r3"
+    ],
+    "reads_out": false,
+    "text": "PC = 4675; r4 = r3 + 1"
+  },
+  {
+    "offset": 4675,
+    "raw": "%1$04722s%3$hn%1$60814s%1$*14$s%1$65535s%15$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4722,
+          "terms": {}
+        },
+        "value_str": "4722"
+      },
+      {
+        "dst": "r6",
+        "value": {
+          "const": 65535,
+          "terms": {
+            "r5": 1
+          }
+        },
+        "value_str": "r5 + 65535"
+      }
+    ],
+    "reads": [
+      "r5"
+    ],
+    "reads_out": false,
+    "text": "PC = 4722; r6 = r5 + 65535"
+  },
+  {
+    "offset": 4722,
+    "raw": "%14$c%1$64693s%2$c%4$s%1$05600s%3$hn",
+    "kind": "BR",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4759,
+          "terms": {
+            "OUT": 1
+          }
+        },
+        "value_str": "OUT + 4759"
+      }
+    ],
+    "reads": [],
+    "reads_out": true,
+    "text": "PC = OUT + 4759"
+  },
+  {
+    "offset": 4759,
+    "raw": "%1$04804s%3$hn%1$60732s%1$61708s%1$*8$s%7$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4804,
+          "terms": {}
+        },
+        "value_str": "4804"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 61708,
+          "terms": {
+            "r2": 1
+          }
+        },
+        "value_str": "r2 + 61708"
+      }
+    ],
+    "reads": [
+      "r2"
+    ],
+    "reads_out": false,
+    "text": "PC = 4804; r2 = r2 + 61708"
+  },
+  {
+    "offset": 4804,
+    "raw": "%1$04841s%3$hn%1$60695s%1$*5$s%15$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4841,
+          "terms": {}
+        },
+        "value_str": "4841"
+      },
+      {
+        "dst": "r6",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r1": 1
+          }
+        },
+        "value_str": "r1"
+      }
+    ],
+    "reads": [
+      "r1"
+    ],
+    "reads_out": false,
+    "text": "PC = 4841; r6 = r1"
+  },
+  {
+    "offset": 4841,
+    "raw": "%1$04886s%3$hn%1$60650s%1$59392s%1$*8$s%7$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4886,
+          "terms": {}
+        },
+        "value_str": "4886"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 59392,
+          "terms": {
+            "r2": 1
+          }
+        },
+        "value_str": "r2 + 59392"
+      }
+    ],
+    "reads": [
+      "r2"
+    ],
+    "reads_out": false,
+    "text": "PC = 4886; r2 = r2 + 59392"
+  },
+  {
+    "offset": 4886,
+    "raw": "%1$04931s%3$hn%1$60605s%1$*14$s%1$*12$s%6$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4931,
+          "terms": {}
+        },
+        "value_str": "4931"
+      },
+      {
+        "dst": "r1",
+        "value": {
+          "const": 0,
+          "terms": {
+            "r5": 1,
+            "r4": 1
+          }
+        },
+        "value_str": "r5 + r4"
+      }
+    ],
+    "reads": [
+      "r5",
+      "r4"
+    ],
+    "reads_out": false,
+    "text": "PC = 4931; r1 = r5 + r4"
+  },
+  {
+    "offset": 4931,
+    "raw": "%1$04972s%3$hn%1$60564s%1$*8$s%1$1s%9$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 4972,
+          "terms": {}
+        },
+        "value_str": "4972"
+      },
+      {
+        "dst": "r3",
+        "value": {
+          "const": 1,
+          "terms": {
+            "r2": 1
+          }
+        },
+        "value_str": "r2 + 1"
+      }
+    ],
+    "reads": [
+      "r2"
+    ],
+    "reads_out": false,
+    "text": "PC = 4972; r3 = r2 + 1"
+  },
+  {
+    "offset": 4972,
+    "raw": "%1$03749s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 3749,
+          "terms": {}
+        },
+        "value_str": "3749"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 3749"
+  },
+  {
+    "offset": 4987,
+    "raw": "%1$05032s%3$hn%1$60504s%1$59392s%1$*8$s%7$hn",
+    "kind": "ALU",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 5032,
+          "terms": {}
+        },
+        "value_str": "5032"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 59392,
+          "terms": {
+            "r2": 1
+          }
+        },
+        "value_str": "r2 + 59392"
+      }
+    ],
+    "reads": [
+      "r2"
+    ],
+    "reads_out": false,
+    "text": "PC = 5032; r2 = r2 + 59392"
+  },
+  {
+    "offset": 5032,
+    "raw": "%1$05066s%3$hn%1$60470s%1$0s%6$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 5066,
+          "terms": {}
+        },
+        "value_str": "5066"
+      },
+      {
+        "dst": "r1",
+        "value": {
+          "const": 0,
+          "terms": {}
+        },
+        "value_str": "0"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 5066; r1 = 0"
+  },
+  {
+    "offset": 5066,
+    "raw": "%1$65534s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 65534,
+          "terms": {}
+        },
+        "value_str": "65534"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 65534"
+  },
+  {
+    "offset": 5081,
+    "raw": "%1$05119s%3$hn%1$60417s%1$59392s%7$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 5119,
+          "terms": {}
+        },
+        "value_str": "5119"
+      },
+      {
+        "dst": "r2",
+        "value": {
+          "const": 59392,
+          "terms": {}
+        },
+        "value_str": "59392"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 5119; r2 = 59392"
+  },
+  {
+    "offset": 5119,
+    "raw": "%1$05153s%3$hn%1$60383s%1$0s%6$hn",
+    "kind": "MOV",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 5153,
+          "terms": {}
+        },
+        "value_str": "5153"
+      },
+      {
+        "dst": "r1",
+        "value": {
+          "const": 0,
+          "terms": {}
+        },
+        "value_str": "0"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 5153; r1 = 0"
+  },
+  {
+    "offset": 5153,
+    "raw": "%1$65534s%3$hn",
+    "kind": "JMP",
+    "assigns": [
+      {
+        "dst": "PC",
+        "value": {
+          "const": 65534,
+          "terms": {}
+        },
+        "value_str": "65534"
+      }
+    ],
+    "reads": [],
+    "reads_out": false,
+    "text": "PC = 65534"
+  },
+  {
+    "offset": 61440,
+    "raw": "Ì°ç{¼Àî:üsÐziâHã×Y\u0011kñ³\u000bÅ¿Seeðïj¿\bxÄ,5<lÜàÈÈ;ï)\u000b³Ìü\u0005\u001bgµ­\u0015Á\bÐEE&CEmôï»I\u0006Êsk¼éP\u0005åÓµG+­%®¯AåØ\u0014ôæðÀ\n¬¡õµÓSðïÔ;;\u000bç\u0017\u0007\u001flñ\u001eD²W\u0007·6SÉê\u0010bß\u001d\u0007³qSa\u001a+x¿ÁµÆ;ê+D\u0017 Ê·;8/ès­Dïø­\u001fêÍÅ³I\u0005\u0003§DµiølåSNG¾Ð\u001d­ñ=ãß5añç\rqÅ\u0002O ^¢Äa2\u000f¨¾~)Ñm*ÙUG\u0007ê+yO=£\u0011ÝÁ\u001d\u0011",
+    "kind": "JMP",
+    "assigns": [],
+    "reads": [],
+    "reads_out": false,
+    "text": "(nop)"
+  },
+  {
+    "offset": 61698,
+    "raw": "ï\u0001¯I­Á\u000fáÿ¡&\u0014;h`kÇ4Ä\n\u001bmÉGve2t_â%r2tb\n¹nÆ\u0017ãÅf}",
+    "kind": "JMP",
+    "assigns": [],
+    "reads": [],
+    "reads_out": false,
+    "text": "(nop)"
+  }
+]

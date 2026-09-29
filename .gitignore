@@ -1,0 +1,8 @@
+# artefatos gerados podem ser recriados com src/p1_disasm/*.py
+out/M.bin
+__pycache__/
+*.pyc
+
+# NUNCA versionar: contém a flag e gera a senha
+other/gen_data.py
+**/gen_data.py
