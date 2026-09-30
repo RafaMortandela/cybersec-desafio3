@@ -6,8 +6,8 @@ Trabalho da disciplina de Cibersegurança: reprodução, análise e apresentaç�
 
 ```
 sprint               binário original + sprint.sha256   [entregar SÓ o binário]
-src/                 extrator ELF + disassembler da ISA implícita  (P1)
-out/                 artefatos gerados (M.bin, sprint.asm, sprint.json)
+src/                 extrator/disassembler (P1) e solver do labirinto (P4)
+out/                 disassembly, rota e mapa ASCII gerados
 docs/writeup/        write-up por etapa
 docs/referencias.md  todas as fontes citadas
 ```
@@ -29,6 +29,21 @@ sha256sum -c sprint.sha256
 
 Não há dependências externas (Python 3, biblioteca padrão apenas).
 
+## Solver do labirinto (etapa P4)
+
+```bash
+python3 src/solve_maze.py sprint --path-out out/maze_path.txt --map-out out/maze_map.txt
+wc -c out/maze_path.txt   # 255 bytes: 254 movimentos + newline
+sha256sum -c sprint.sha256
+getconf GNU_LIBC_VERSION
+/lib64/ld-linux-x86-64.so.2 ./sprint < out/maze_path.txt
+python3 -m unittest discover -s tests -v
+```
+
+O script lê o símbolo `M` do **binário original** usando o extrator P1. Reconstrói o crivo de primos, usa os 256 índices em `M[0xf000:0xf100]` para formar a grade 16×16 e decodifica o início (`M[0xf100]`) e os nove checkpoints (`M[0xf103:0xf10c]`). A busca em largura usa o estado `(posição, próximo checkpoint)`; assim visita os nove pontos **na ordem exigida**. Ela exige uma rota mínima com 254 movimentos, todos dentro da grade e em células livres. A senha fica em [out/maze_path.txt](out/maze_path.txt) e a visualização para slides em [out/maze_map.txt](out/maze_map.txt). Detalhes e evidências: [write-up P4](docs/writeup/04-p4-solver.md). 
+
+Neste checkout, `sprint` não tem o bit de execução; a chamada pela loader acima executa os **mesmos bytes** sem alterar o arquivo. Com glibc 2.39, a rota gerada imprimiu `Flag: CTF{n0w_ev3n_pr1n7f_1s_7ur1ng_c0mpl3te}`. A auditoria recebida também relata sucesso com glibc 2.44; registre a versão usada ao reproduzir.
+
 ## Ambiente
 
 - Binário: ELF x86-64 PIE, não *stripped*. SHA-256 em `sprint.sha256`.
@@ -44,4 +59,4 @@ Não há dependências externas (Python 3, biblioteca padrão apenas).
 | Slides e teoria | P7–P9 | semântica de format strings, Turing-completude, roteiro/demo |
 | Write-up e repositório | P10–P11 | documento técnico, README e referências |
 
-Esta parte do repositório cobre **P1** (Rafaela): ver `docs/writeup/01-p1-extracao-disassembly.md`.
+Este repositório contém as entregas **P1** (Rafaela) e **P4** (Cauã) : ver `docs/writeup/01-p1-extracao-disassembly.md` e `docs/writeup/04-p4-solver.md`.

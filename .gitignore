@@ -6,3 +6,6 @@ __pycache__/
 # NUNCA versionar: contém a flag e gera a senha
 other/gen_data.py
 **/gen_data.py
+
+# Caua
+docs/writeup/04-p4-roteiro-apresentacao.md
