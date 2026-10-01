@@ -26,6 +26,7 @@ src/                    extrator/disassembler (P1), lifting (P2), emulador (P3),
 tests/                  testes automatizados (P2, P3, P4, P5)
 out/                    artefatos gerados: disassembly, IR, pseudocódigo,
                         rota e mapa do labirinto
+docker/                 Dockerfiles e matriz de ambientes (P6)
 docs/writeup/           write-up por etapa
 docs/referencias.md     todas as fontes citadas
 docs/revisao-coesao.md  revisão de coerência entre notas, código e write-ups
@@ -41,7 +42,7 @@ LICENSE                 licença do repositório
 - Binário: ELF x86-64 PIE, não *stripped*.
 - glibc de referência: **2.39**. Registre sempre a versão usada ao reproduzir (`getconf GNU_LIBC_VERSION`). A auditoria recebida também relata sucesso com a glibc 2.44.
 - Por que a glibc importa: `%4$s` lê o próprio buffer de saída do `sprintf`, comportamento indefinido que é determinístico na glibc alvo.
-- Docker e matriz de versões de glibc: ver [Ambiente Docker (P6)](#ambiente-docker-e-matriz-de-glibc-p6--em-andamento).
+- Docker e matriz de versões de glibc: ver [Ambiente Docker (P6)](#ambiente-docker-e-matriz-de-glibc-p6).
 
 ## Reprodução passo a passo
 
@@ -126,9 +127,14 @@ python3 src/validate.py                  # E2E com o ELF + diferencial ELF x P3 
 python3 src/validate.py --emulator-only  # sem o ELF (ex.: Windows sem Docker)
 ```
 
-### Ambiente Docker e matriz de glibc (P6) — em andamento
+### Ambiente Docker e matriz de glibc (P6)
 
-> Seção a ser preenchida pela responsável pelo P6: Dockerfile isolado com a versão da glibc registrada, testes do binário em outras distros/versões (onde o comportamento indefinido funciona e onde quebra) e adaptações documentadas, com hashes do binário e versões.
+```bash
+python3 docker/matrix.py                 # constrói e roda a matriz inteira
+python3 docker/matrix.py --report-only   # só resume relatórios existentes
+```
+
+Usa `docker/Dockerfile` (base fixada por digest) e `docker/Dockerfile.nix` (Nixpkgs fixado). O binário é copiado para a imagem com o hash conferido no build, sem bind mount. As mesmas 71 entradas de P5 passam em **glibc 2.31, 2.35, 2.36, 2.39, 2.40 e 2.44** (e no host glibc 2.43); sob **musl** (Alpine) o ELF não inicia, pois exige `/lib64/ld-linux-x86-64.so.2`. Resultado consolidado em [out/p6/matriz.tsv](out/p6/matriz.tsv) e detalhes no [write-up P6](docs/writeup/06-p6-ambiente-glibc.md). `gen_data.py` fica fora da entrega e é barrado no contexto de build pelo `.dockerignore`.
 
 ### Write-up técnico (P10) — em andamento
 

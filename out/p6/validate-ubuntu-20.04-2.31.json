@@ -1,0 +1,719 @@
+{
+  "sha256": "925510065b1cd97c53bb6f46b64fbf9fe5a039aa892d6f5609e200e2c74d726a",
+  "backend": "docker",
+  "libc": "glibc 2.31",
+  "e2e_flag": "Flag: CTF{n0w_ev3n_pr1n7f_1s_7ur1ng_c0mpl3te}",
+  "casos": [
+    {
+      "categoria": "valida",
+      "caso": "rota P4",
+      "tamanho": 254,
+      "status": 0,
+      "aceita": true,
+      "instrucoes": 19234,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "valida",
+      "caso": "rota + newline CRLF",
+      "tamanho": 256,
+      "status": 0,
+      "aceita": true,
+      "instrucoes": 19234,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "valida",
+      "caso": "whitespace inicial",
+      "tamanho": 257,
+      "status": 0,
+      "aceita": true,
+      "instrucoes": 19234,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "valida",
+      "caso": "lixo após whitespace",
+      "tamanho": 260,
+      "status": 0,
+      "aceita": true,
+      "instrucoes": 19234,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "prefixo 0/254",
+      "tamanho": 0,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 6167,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "prefixo 1/254",
+      "tamanho": 1,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 6173,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "prefixo 17/254",
+      "tamanho": 17,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 6269,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "prefixo 100/254",
+      "tamanho": 100,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 6767,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "prefixo 200/254",
+      "tamanho": 200,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 7367,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "prefixo 253/254",
+      "tamanho": 253,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 7685,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "até checkpoint 1 (passo 22) + resto \"r\"",
+      "tamanho": 254,
+      "status": 4,
+      "aceita": false,
+      "instrucoes": 12715,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "até checkpoint 1, resto truncado",
+      "tamanho": 22,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 6299,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "até checkpoint 2 (passo 68) + resto \"r\"",
+      "tamanho": 254,
+      "status": 4,
+      "aceita": false,
+      "instrucoes": 10117,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "até checkpoint 2, resto truncado",
+      "tamanho": 68,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 6575,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "até checkpoint 3 (passo 112) + resto \"r\"",
+      "tamanho": 254,
+      "status": 2,
+      "aceita": false,
+      "instrucoes": 16299,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "até checkpoint 3, resto truncado",
+      "tamanho": 112,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 6839,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "até checkpoint 4 (passo 144) + resto \"r\"",
+      "tamanho": 254,
+      "status": 4,
+      "aceita": false,
+      "instrucoes": 15157,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "até checkpoint 4, resto truncado",
+      "tamanho": 144,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 7031,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "até checkpoint 5 (passo 162) + resto \"r\"",
+      "tamanho": 254,
+      "status": 2,
+      "aceita": false,
+      "instrucoes": 16405,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "até checkpoint 5, resto truncado",
+      "tamanho": 162,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 7139,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "até checkpoint 6 (passo 188) + resto \"r\"",
+      "tamanho": 254,
+      "status": 2,
+      "aceita": false,
+      "instrucoes": 16452,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "até checkpoint 6, resto truncado",
+      "tamanho": 188,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 7295,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "até checkpoint 7 (passo 218) + resto \"r\"",
+      "tamanho": 254,
+      "status": 4,
+      "aceita": false,
+      "instrucoes": 15889,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "até checkpoint 7, resto truncado",
+      "tamanho": 218,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 7475,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "até checkpoint 8 (passo 238) + resto \"r\"",
+      "tamanho": 254,
+      "status": 2,
+      "aceita": false,
+      "instrucoes": 16617,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "até checkpoint 8, resto truncado",
+      "tamanho": 238,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 7595,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "até checkpoint 9 (passo 254) + resto \"r\"",
+      "tamanho": 254,
+      "status": 0,
+      "aceita": true,
+      "instrucoes": 19234,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "até checkpoint 9, resto truncado",
+      "tamanho": 254,
+      "status": 0,
+      "aceita": true,
+      "instrucoes": 19234,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "rota + 1 passo extra",
+      "tamanho": 255,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 7697,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "parcial",
+      "caso": "rota + 100 passos extras",
+      "tamanho": 354,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 7697,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "direção invertida no passo 1",
+      "tamanho": 254,
+      "status": 4,
+      "aceita": false,
+      "instrucoes": 16202,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "direção invertida no passo 2",
+      "tamanho": 254,
+      "status": 4,
+      "aceita": false,
+      "instrucoes": 16205,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "direção invertida no passo 51",
+      "tamanho": 254,
+      "status": 2,
+      "aceita": false,
+      "instrucoes": 16446,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "direção invertida no passo 128",
+      "tamanho": 254,
+      "status": 2,
+      "aceita": false,
+      "instrucoes": 16530,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "direção invertida no passo 201",
+      "tamanho": 254,
+      "status": 4,
+      "aceita": false,
+      "instrucoes": 16367,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "direção invertida no passo 254",
+      "tamanho": 254,
+      "status": 3,
+      "aceita": false,
+      "instrucoes": 16633,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "vazia",
+      "tamanho": 0,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 6167,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "só newline",
+      "tamanho": 1,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 6167,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "254 x \"r\"",
+      "tamanho": 254,
+      "status": 4,
+      "aceita": false,
+      "instrucoes": 15469,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "254 x \"x\"",
+      "tamanho": 254,
+      "status": 1,
+      "aceita": false,
+      "instrucoes": 17608,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "zigue-zague lr",
+      "tamanho": 254,
+      "status": 2,
+      "aceita": false,
+      "instrucoes": 16465,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "zigue-zague du",
+      "tamanho": 254,
+      "status": 3,
+      "aceita": false,
+      "instrucoes": 16341,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "bytes 0xff",
+      "tamanho": 254,
+      "status": 1,
+      "aceita": false,
+      "instrucoes": 17608,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "NUL no início",
+      "tamanho": 255,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 6167,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "NUL no meio",
+      "tamanho": 254,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 6767,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "espaço no meio",
+      "tamanho": 254,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 6767,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "maiúsculas",
+      "tamanho": 254,
+      "status": 1,
+      "aceita": false,
+      "instrucoes": 17608,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "mutação aleatória #0",
+      "tamanho": 254,
+      "status": 4,
+      "aceita": false,
+      "instrucoes": 14981,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "mutação aleatória #1",
+      "tamanho": 254,
+      "status": 4,
+      "aceita": false,
+      "instrucoes": 10024,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "mutação aleatória #2",
+      "tamanho": 254,
+      "status": 2,
+      "aceita": false,
+      "instrucoes": 16502,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "mutação aleatória #3",
+      "tamanho": 254,
+      "status": 2,
+      "aceita": false,
+      "instrucoes": 16496,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "mutação aleatória #4",
+      "tamanho": 254,
+      "status": 4,
+      "aceita": false,
+      "instrucoes": 16051,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "mutação aleatória #5",
+      "tamanho": 254,
+      "status": 2,
+      "aceita": false,
+      "instrucoes": 16578,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "mutação aleatória #6",
+      "tamanho": 254,
+      "status": 0,
+      "aceita": true,
+      "instrucoes": 19234,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "mutação aleatória #7",
+      "tamanho": 254,
+      "status": 2,
+      "aceita": false,
+      "instrucoes": 16312,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "mutação aleatória #8",
+      "tamanho": 254,
+      "status": 0,
+      "aceita": true,
+      "instrucoes": 19234,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "mutação aleatória #9",
+      "tamanho": 254,
+      "status": 2,
+      "aceita": false,
+      "instrucoes": 16340,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "mutação aleatória #10",
+      "tamanho": 254,
+      "status": 2,
+      "aceita": false,
+      "instrucoes": 16615,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "mutação aleatória #11",
+      "tamanho": 254,
+      "status": 4,
+      "aceita": false,
+      "instrucoes": 15162,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "aleatória #0 (len 254)",
+      "tamanho": 254,
+      "status": 2,
+      "aceita": false,
+      "instrucoes": 16438,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "aleatória #1 (len 254)",
+      "tamanho": 254,
+      "status": 4,
+      "aceita": false,
+      "instrucoes": 15059,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "aleatória #2 (len 254)",
+      "tamanho": 254,
+      "status": 4,
+      "aceita": false,
+      "instrucoes": 8071,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "aleatória #3 (len 254)",
+      "tamanho": 254,
+      "status": 4,
+      "aceita": false,
+      "instrucoes": 7939,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "aleatória #4 (len 254)",
+      "tamanho": 254,
+      "status": 4,
+      "aceita": false,
+      "instrucoes": 7773,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "aleatória #5 (len 254)",
+      "tamanho": 254,
+      "status": 4,
+      "aceita": false,
+      "instrucoes": 7841,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "aleatória #6 (len 375)",
+      "tamanho": 375,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 7697,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "aleatória #7 (len 254)",
+      "tamanho": 254,
+      "status": 4,
+      "aceita": false,
+      "instrucoes": 8541,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "aleatória #8 (len 64)",
+      "tamanho": 64,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 6551,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "aleatória #9 (len 187)",
+      "tamanho": 187,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 7289,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "aleatória #10 (len 254)",
+      "tamanho": 254,
+      "status": 4,
+      "aceita": false,
+      "instrucoes": 11044,
+      "p3_p2": true,
+      "elf": true
+    },
+    {
+      "categoria": "invalida",
+      "caso": "aleatória #11 (len 5)",
+      "tamanho": 5,
+      "status": 5,
+      "aceita": false,
+      "instrucoes": 6197,
+      "p3_p2": true,
+      "elf": true
+    }
+  ],
+  "falhas": []
+}

@@ -1,0 +1,8 @@
+linha	base	glibc	sha256	casos	p3_p2	elf_p3	e2e	esperado	veredito
+ubuntu-20.04-2.31	ubuntu@sha256:8feb4d8ca5354def3d8fce243717141ce31e2c428701f6682bd2fafe15388214	glibc 2.31	925510065b1cd97c	71	71/71	71/71	sim	aprovado	OK
+ubuntu-22.04-2.35	ubuntu@sha256:b8b6ee6aa931ecd9d0d952abc34dc0e5f7c6a30c6bb71b079fe399fde0329c02	glibc 2.35	925510065b1cd97c	71	71/71	71/71	sim	aprovado	OK
+debian-12-2.36	debian@sha256:f37a335e82bca302e955fa39f9dfe28f1be618f016f8a2b56318e5a5111afc26	glibc 2.36	925510065b1cd97c	71	71/71	71/71	sim	aprovado	OK
+ubuntu-24.04-2.39	ubuntu@sha256:008173c23f95b170204355c12626cb5a965d779a7e1283b09e9cffbb1bf33ca3	glibc 2.39	925510065b1cd97c	71	71/71	71/71	sim	aprovado	OK
+arch-2.44	archlinux@sha256:b21322c663be387c0ed9cbc7bbbfe18e41633ad4e7b7c77cfad45f128be20040	glibc 2.44	925510065b1cd97c	71	71/71	71/71	sim	aprovado	OK
+nixpkgs-glibc-2.40	nixos/nix pinado	glibc 2.40	925510065b1cd97c	71	71/71	71/71	sim	aprovado	OK
+alpine-musl	alpine@sha256:294b683cb724975bec92580e1e685676bd4b50bda910ddb8c51d4cabeaec77e6	?	925510065b1cd97c	71	71/71	0/71	nao	nao-executa	OK

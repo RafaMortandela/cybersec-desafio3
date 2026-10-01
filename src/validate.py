@@ -36,15 +36,33 @@ TIMEOUT = 10
 class Backend:
     """Executa o ELF original com stdin controlado e devolve (rc, stdout, stderr)."""
 
-    def __init__(self, name, binary, image=None):
+    def __init__(self, name, binary, image=None, image_binary=None, image_loader=LOADER):
         self.name, self.binary, self.image = name, Path(binary).resolve(), image
+        # image_binary: caminho do ELF dentro da imagem. Quando definido, nao ha
+        # bind mount; o binario ja vem assado (ver docker/Dockerfile). Isso
+        # evita o bloqueio de SELinux em hosts Fedora/RHEL, que faria o ELF
+        # falhar com rc=127 em toda a matriz por um motivo que nao e a libc.
+        self.image_binary = image_binary
+        # image_loader: 'none' executa /sprint diretamente, deixando o kernel
+        # resolver o PT_INTERP do proprio ELF. E o teste correto sob musl, onde
+        # nao existe loader da glibc para invocar. Nos demais casos usamos a
+        # loader da glibc explicitamente, porque o arquivo do repositorio pode
+        # nao ter bit de execucao.
+        self.image_loader = image_loader
 
     def _cmd(self, *tail):
         if self.name == 'native':
             return [LOADER, str(self.binary), *tail]
-        return ['docker', 'run', '--rm', '-i', '--platform', 'linux/amd64',
-                '-e', 'LC_ALL=C', '-v', f'{self.binary}:/sprint:ro',
-                self.image, LOADER, '/sprint', *tail]
+        remote = self.image_binary or '/sprint'
+        cmd = ['docker', 'run', '--rm', '-i', '--platform', 'linux/amd64',
+               '-e', 'LC_ALL=C']
+        if not self.image_binary:
+            cmd += ['-v', f'{self.binary}:{remote}:ro']
+        if self.image_loader and self.image_loader != 'none':
+            cmd.append(self.image)
+            cmd.append(self.image_loader)
+            return cmd + [remote, *tail]
+        return cmd + [self.image, remote, *tail]
 
     def run(self, data):
         # O ELF pode não ter bit de execução: usa-se sempre a loader.
@@ -64,7 +82,7 @@ class Backend:
             return '?'
 
 
-def pick_backend(choice, binary, image):
+def pick_backend(choice, binary, image, image_binary=None, image_loader=LOADER):
     native = (platform.system() == 'Linux' and platform.machine() == 'x86_64'
               and Path(LOADER).exists())
     docker = False
@@ -77,7 +95,7 @@ def pick_backend(choice, binary, image):
     if choice in ('auto', 'native') and native:
         return Backend('native', binary)
     if choice in ('auto', 'docker') and docker:
-        return Backend('docker', binary, image)
+        return Backend('docker', binary, image, image_binary, image_loader)
     return None
 
 
@@ -184,12 +202,14 @@ def validate(args):
     if not statuses >= set(range(6)):
         failures.append(f'cobertura incompleta dos status 0..5: {sorted(statuses)}')
 
-    backend = None if args.emulator_only else pick_backend(args.backend, binary, args.image)
+    backend = None if args.emulator_only else pick_backend(
+        args.backend, binary, args.image, args.image_binary, args.image_loader)
     if backend is None:
         if not args.emulator_only:
             print('[3] ELF original: NÃO EXECUTADO (precisa de Linux x86-64 com loader glibc ou Docker ativo).')
             print('    Rode em Linux/WSL/Docker, ou use --emulator-only para confirmar que é intencional.')
             report['elf'] = 'nao-executado'
+            report['e2e'] = None
             failures.append('ELF original não executado')
     else:
         report['backend'], report['libc'] = backend.name, backend.libc()
@@ -201,6 +221,7 @@ def validate(args):
         if not e2e:
             failures.append(f'E2E falhou: rc={rc} stdout={out!r} stderr={err!r}')
         report['e2e_flag'] = want.strip()
+        report['e2e'] = bool(e2e)
         for row in rows:
             rc, out, err = backend.run(row['_data'])
             row['elf'] = rc == 0 and out == expected_stdout(row['_r3']) and not err
@@ -234,6 +255,12 @@ def main():
     p.add_argument('--path', type=Path, default=ROOT / 'out/maze_path.txt')
     p.add_argument('--backend', choices=('auto', 'native', 'docker'), default='auto')
     p.add_argument('--image', default='ubuntu:24.04', help='imagem Docker (glibc 2.39)')
+    p.add_argument('--image-binary', default=None,
+                   help='caminho do ELF dentro da imagem; sem bind mount '
+                        '(use com as imagens de docker/Dockerfile)')
+    p.add_argument('--image-loader', default=LOADER,
+                   help=f"loader da glibc dentro da imagem, ou 'none' para "
+                        f"executar o ELF diretamente (teste sob musl)")
     p.add_argument('--emulator-only', action='store_true', help='não executa o ELF')
     p.add_argument('--seed', type=int, default=20261001)
     p.add_argument('--max-steps', type=int, default=100000)
