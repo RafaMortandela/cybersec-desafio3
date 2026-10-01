@@ -1,0 +1,23 @@
+test_all_failure_statuses (test_p2.LiftingTests.test_all_failure_statuses) ... ok
+test_dereference_and_branch_targets (test_p2.LiftingTests.test_dereference_and_branch_targets) ... ok
+test_instruction_coverage_and_data (test_p2.LiftingTests.test_instruction_coverage_and_data) ... ok
+test_rejects_other_binary_profile (test_p2.LiftingTests.test_rejects_other_binary_profile) ... ok
+test_rejects_unknown_directives_and_missing_or_modified_code (test_p2.LiftingTests.test_rejects_unknown_directives_and_missing_or_modified_code) ... ok
+test_sieve_against_trial_division (test_p2.LiftingTests.test_sieve_against_trial_division) ... ok
+test_structured_model_matches_ir_for_varied_inputs (test_p2.LiftingTests.test_structured_model_matches_ir_for_varied_inputs) ... ok
+test_valid_route_and_decryption (test_p2.LiftingTests.test_valid_route_and_decryption) ... ok
+test_branch_low_byte (test_p3.PrimitiveTests.test_branch_low_byte) ... ok
+test_modulo_and_memory_word (test_p3.PrimitiveTests.test_modulo_and_memory_word) ... ok
+test_snapshot_register_and_pointer (test_p3.PrimitiveTests.test_snapshot_register_and_pointer) ... ok
+test_trace (test_p3.PrimitiveTests.test_trace) ... ok
+test_unknown_format_and_limit (test_p3.PrimitiveTests.test_unknown_format_and_limit) ... ok
+test_differential_original_stdout (test_p3.ProgramTests.test_differential_original_stdout) ... ok
+test_differential_p2 (test_p3.ProgramTests.test_differential_p2) ... ok
+test_valid_route_and_sieve (test_p3.ProgramTests.test_valid_route_and_sieve) ... ok
+test_checkpoint_futuro_precisa_ser_revisitado (test_p4.MazeSolverTests.test_checkpoint_futuro_precisa_ser_revisitado) ... ok
+test_elf_original_gera_rota_valida_de_254_passos (test_p4.MazeSolverTests.test_elf_original_gera_rota_valida_de_254_passos) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 10.371s
+
+OK

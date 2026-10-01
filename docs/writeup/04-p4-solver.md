@@ -6,7 +6,7 @@ O solver está em `src/solve_maze.py`. Ele extrai o símbolo `M` do ELF original
 
 Na primeira fase, a VM marca 0, 1 e os números compostos em `0x7000 + 2*n`. Assim, o byte em `M[0xf000 + posição]` é o índice de um número: a célula é **livre se esse número é primo**. São 256 posições, organizadas em 16 linhas de 16 colunas. O ponto inicial vem de `M[0xf100] = 0x11`.
 
-Os nove bytes de `M[0xf103:0xf10c]` são os negativos módulo 256 das posições obrigatórias. A VM só avança o contador quando o movimento chega ao checkpoint *atual*; por isso, passar por um checkpoint futuro não o cumpre antecipadamente. As posições calculadas, em ordem, são `0x7d`, `0xff`, `0x51`, `0xb7`, `0x53`, `0x3f`, `0xf1`, `0x75`, `0x1f`. Cada movimento é `u=-16`, `r=+1`, `d=+16` ou `l=-1`, sem atravessar as bordas da grade. A entrada precisa ter exatamente 254 caracteres.
+Os nove bytes de `M[0xf103:0xf10c]` são os negativos módulo 256 das posições obrigatórias. A VM só avança o contador quando o movimento chega ao checkpoint *atual*; por isso, passar por um checkpoint futuro não o cumpre antecipadamente. As posições calculadas, em ordem, são `0x7d`, `0xff`, `0x51`, `0xb7`, `0x53`, `0x3f`, `0xf1`, `0x75`, `0x1f`. Cada movimento é `u=-16`, `r=+1`, `d=+16` ou `l=-1`, Na BFS, não se atravessam as bordas da grade. A VM verifica o intervalo linear 0..255 e não testa explicitamente a troca de coluna; a BFS é mais restritiva e sua rota foi validada no original. A entrada precisa ter exatamente 254 caracteres.
 
 ## Busca
 

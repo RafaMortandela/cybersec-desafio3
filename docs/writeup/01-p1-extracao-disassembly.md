@@ -1,7 +1,7 @@
 # P1 — Extração da tabela e disassembly da ISA implícita
 
 **Responsável:** Rafaela Silva Ruis
-**Entrega:** `src/p1_disasm/extract.py`, `src/p1_disasm/disasm.py`, `out/sprint.asm`, `out/sprint.json`
+**Entrega:** `src/extract.py`, `src/disasm.py`, `out/sprint.asm`, `out/sprint.json`
 
 Esta seção documenta a primeira etapa da reprodução do desafio *Sprint* (Google CTF 2020): recuperar, a partir do binário, o programa que a máquina executa. O objetivo não é apenas "rodar um script", mas justificar por que a tabela de *format strings* é uma sequência de instruções e como cada uma é traduzida para uma forma legível.
 
@@ -21,18 +21,18 @@ Três observações sustentam toda a análise:
 
 O laço termina quando `PC` atinge um valor sentinela (o fim da tabela); então o binário verifica uma posição fixa da região e, se estiver preenchida, imprime `Flag: %s`.
 
-> **Cuidado de reprodução.** A instrução `%4$s` faz `sprintf` ler o *próprio* buffer de saída enquanto ainda o escreve — comportamento indefinido pela norma C. Na glibc alvo isso é determinístico e é justamente o mecanismo dos desvios condicionais. Por isso a regra do grupo: rodar **o binário original**, registrando a versão da glibc, e nunca inferir o comportamento a partir de uma recompilação. Ambiente auditado: `glibc 2.39` (Ubuntu). SHA-256 do binário em `attachments/sprint.sha256`.
+> **Cuidado de reprodução.** A instrução `%4$s` faz `sprintf` ler o *próprio* buffer de saída enquanto ainda o escreve — comportamento indefinido pela norma C. Na glibc alvo isso é determinístico e é justamente o mecanismo dos desvios condicionais. Por isso a regra do grupo: rodar **o binário original**, registrando a versão da glibc, e nunca inferir o comportamento a partir de uma recompilação. Ambiente auditado: `glibc 2.39` (Ubuntu). SHA-256 do binário em `sprint.sha256`.
 
 ## Passo 1 — Extrair a tabela `M`
 
 `extract.py` faz o *parse* do ELF64 na mão (cabeçalho, *section headers*, `.symtab`/`.strtab`), sem depender de bibliotecas externas, e localiza o símbolo `M` pelo seu endereço virtual e tamanho. Como o binário não é *stripped*, o símbolo está presente e o recorte é exato; há um *fallback* por `.rodata` documentado para o caso *stripped*.
 
 ```
-$ python3 src/p1_disasm/extract.py attachments/sprint --out out/M.bin
+$ python3 src/extract.py sprint --out out/M.bin
 símbolo M: vaddr=0x2020 file_offset=0x2020 size=61748 (0xf134)
 ```
 
-A maior parte de `M` é composta de bytes nulos: são a memória de trabalho e a área do labirinto, preenchidas em tempo de execução. As instruções propriamente ditas ficam concentradas no início da tabela — 148 células não vazias, cada uma uma *format string* terminada em `NUL`.
+A maior parte de `M` é composta de bytes nulos: são a memória de trabalho e a área do labirinto, preenchidas em tempo de execução. As instruções propriamente ditas ficam concentradas no início da tabela — 146 instruções reais e dois registros de dados em `0xf000` e `0xf102`, inicialmente incluídos na saída P1.
 
 ## Passo 2 — Do texto da biblioteca para a ISA
 
@@ -62,7 +62,7 @@ Os índices `%N$` referenciam argumentos posicionais de `sprintf`. Para dar nome
 - argumento 4 → `OUT` (buffer de saída; lido via `%4$s` nos desvios);
 - argumentos ≥ 5 → `r(N) = (N − 3) // 2`, produzindo `r1, r2, …, r10`.
 
-Este mapa é uma **hipótese de análise estática**. A validação em execução — confirmar que cada `r`_i_ corresponde de fato ao slot esperado — é feita pelo emulador da etapa P3, comparando o estado passo a passo com o binário original.
+Este mapa é uma **hipótese de análise estática**. A validação em execução — confirmar que cada `r`_i_ corresponde de fato ao slot esperado — é refinada pela P2 e pela P3. A P3 compara resultados com P2 e a saída com o ELF; não compara estados internos do ELF passo a passo.
 
 ## Passo 3 — Disassembly e classificação
 
@@ -74,7 +74,7 @@ Este mapa é uma **hipótese de análise estática**. A validação em execuçã
 - **BR** — desvio condicional: lê `OUT` e o alvo do `PC` depende do resultado (`PC = OUT + 384`).
 
 ```
-$ python3 src/p1_disasm/disasm.py out/M.bin --json out/sprint.json --txt out/sprint.asm
+$ python3 src/disasm.py out/M.bin --json out/sprint.json --txt out/sprint.asm
 148 instrucoes decodificadas
 por classe: {'MOV': 39, 'ALU': 61, 'BR': 21, 'JMP': 27}
 ```
@@ -93,7 +93,7 @@ Trecho do disassembly gerado (`out/sprint.asm`):
 0x00043a  ALU   PC = 1129; r4 = r3 + 65535
 ```
 
-A saída em JSON (`out/sprint.json`) traz, para cada instrução, o *offset*, a *format string* crua, a classe e cada atribuição já na forma simbólica (constante + termos de registradores). Esse JSON é a interface que entrego para as etapas seguintes: o emulador (P3) o executa; o *solver* do labirinto (P4) o consome; os testes (P5/P6) comparam a execução do disassembly com a do binário.
+A saída em JSON (`out/sprint.json`) traz, para cada instrução, o *offset*, a *format string* crua, a classe e cada atribuição já na forma simbólica (constante + termos de registradores). Esse JSON é a interface que entrego para as etapas seguintes: P2 interpreta o campo raw; P3 decodifica diretamente as strings da memória extraída; P4 lê os dados do ELF. O mapa genérico de nomes acima não é uma ISA executável correta; o mapa concreto está no write-up P3.
 
 ## Contribuição própria (além dos write-ups públicos)
 
@@ -108,3 +108,7 @@ Os write-ups existentes (hexrabbit e jay-invariant) descrevem a solução, mas r
 ## Referências
 
 Ver `docs/referencias.md` (repositório oficial no *commit* fixado, write-ups arquivados no web.archive, e o artigo de Carlini et al., *Control-Flow Bending*, USENIX Security 2015, sobre *printf* como mecanismo Turing-completo).
+
+## Atualização após P2 e P3
+
+Os exemplos de disassembly acima preservam a notação inicial de P1. Os nomes r1..r10 são genéricos e não devem ser usados para execução. O mapa concreto inclui memória indireta, dptr e oito registradores r0..r7. A contagem de 148 inclui dois registros de dados; há 146 instruções reais. P3 resolve os desvios como JNZ do byte baixo.

@@ -1,0 +1,18 @@
+{
+  "status": 0,
+  "accepted": true,
+  "flag": "CTF{n0w_ev3n_pr1n7f_1s_7ur1ng_c0mpl3te}",
+  "pc": 65534,
+  "dptr": 59431,
+  "registers": [
+    39,
+    156,
+    0,
+    125,
+    30069,
+    29952,
+    0,
+    0
+  ],
+  "instructions": 19234
+}

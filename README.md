@@ -6,7 +6,7 @@ Trabalho da disciplina de Cibersegurança: reprodução, análise e apresentaç�
 
 ```
 sprint               binário original + sprint.sha256   [entregar SÓ o binário]
-src/                 extrator/disassembler (P1) e solver do labirinto (P4)
+src/                 extrator/disassembler (P1), lifting (P2), emulador (P3) e solver (P4)
 out/                 disassembly, rota e mapa ASCII gerados
 docs/writeup/        write-up por etapa
 docs/referencias.md  todas as fontes citadas
@@ -79,6 +79,22 @@ Neste checkout, `sprint` não tem o bit de execução; a chamada pela loader aci
 | Slides e teoria | P7–P9 | semântica de format strings, Turing-completude, roteiro/demo |
 | Write-up e repositório | P10–P11 | documento técnico, README e referências |
 
-Este repositório contém as entregas **P1** (Rafaela), **P2** (Antonio) e **P4** (Cauã):
+Este repositório contém as entregas **P1** (Rafaela), **P2** (Antonio), **P3** (emulador próprio) e **P4** (Cauã):
 ver `docs/writeup/01-p1-extracao-disassembly.md`, `src/lift.py`,
 `out/p2_pseudocode.txt`, `out/p2_program.py` e `docs/writeup/04-p4-solver.md`.
+
+## Emulador próprio (etapa P3)
+
+```bash
+python3 src/emulate.py --input out/maze_path.txt --json
+python3 src/emulate.py --input out/maze_path.txt --trace out/p3_trace.jsonl
+python3 -m unittest discover -s tests -v
+```
+
+Executa a ISA diretamente das strings extraídas do ELF, sem sprintf, P2 ou solver.
+Oferece memória, registradores, execução passo a passo, trace JSONL e limite de
+instruções. A rota válida termina após 19.234 instruções e recupera a flag.
+A suíte completa passou em 18 testes; P3 compara 62 entradas com P2 e com stdout
+do ELF original em glibc 2.39. O teste nativo é ignorado em outras plataformas.
+Consulte [write-up P3](docs/writeup/03-p3-emulador.md) e
+[revisão de coesão](docs/revisao-coesao.md).

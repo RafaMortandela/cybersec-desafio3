@@ -17,7 +17,7 @@
   "Control-Flow Bending: On the Effectiveness of Control-Flow Integrity."
   USENIX Security Symposium, 2015.
   (base teórica para `printf`/`sprintf` como mecanismo Turing-completo — *printf-oriented programming*)
-- Especificação C (ISO/IEC 9899) — conversões `%n`/`%hn` e argumentos posicionais (`%N$`).
+- Especificação C (ISO/IEC 9899) — conversões `%n`/`%hn`. A sintaxe de argumentos posicionais (`%N$`) pertence à interface POSIX, não ao ISO C.
 
 ## Evidência competitiva
 - CTFtime — Google CTF 2020, tarefa "sprint" (173 pts; ~65 equipes; evento de 48 h).
