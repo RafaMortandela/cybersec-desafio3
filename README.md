@@ -83,6 +83,15 @@ Este repositório contém as entregas **P1** (Rafaela), **P2** (Antonio), **P3**
 ver `docs/writeup/01-p1-extracao-disassembly.md`, `src/lift.py`,
 `out/p2_pseudocode.txt`, `out/p2_program.py` e `docs/writeup/04-p4-solver.md`.
 
+## Validação (etapa P5)
+
+```bash
+python3 src/validate.py                  # E2E com o ELF + diferencial ELF x P3 x P2
+python3 src/validate.py --emulator-only  # sem o ELF (ex.: Windows sem Docker)
+```
+
+Detalhes: [write-up P5](docs/writeup/05-p5-validacao.md).
+
 ## Emulador próprio (etapa P3)
 
 ```bash
