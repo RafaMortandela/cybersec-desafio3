@@ -2,108 +2,149 @@
 
 Trabalho da disciplina de Cibersegurança: reprodução, análise e apresentação do desafio de *reversing* **Sprint** (Google CTF 2020), uma máquina virtual implementada inteiramente dentro de chamadas a `sprintf`.
 
-## Estrutura
+**Fluxo da solução:** binário → ISA implícita → programa (crivo de primos + labirinto) → senha → flag.
+
+- Slides: [apresentação no Canva](https://canva.link/7p0fq9fc7v580ud)
+- Referências completas: [docs/referencias.md](docs/referencias.md)
+
+## Sumário
+
+1. [Estrutura do repositório](#estrutura-do-repositório)
+2. [Pré-requisitos e ambiente](#pré-requisitos-e-ambiente)
+3. [Reprodução passo a passo](#reprodução-passo-a-passo)
+4. [Etapas e entregas](#etapas-e-entregas)
+5. [Divisão do trabalho](#divisão-do-trabalho)
+6. [Licença](#licença)
+
+## Estrutura do repositório
 
 ```
-sprint               binário original + sprint.sha256   [entregar SÓ o binário]
-src/                 extrator/disassembler (P1), lifting (P2), emulador (P3) e solver (P4)
-out/                 disassembly, rota e mapa ASCII gerados
-docs/writeup/        write-up por etapa
-docs/referencias.md  todas as fontes citadas
+sprint                  binário original do desafio
+sprint.sha256           hash SHA-256 do binário
+src/                    extrator/disassembler (P1), lifting (P2), emulador (P3),
+                        solver do labirinto (P4) e validação (P5)
+tests/                  testes automatizados (P2, P3, P4, P5)
+out/                    artefatos gerados: disassembly, IR, pseudocódigo,
+                        rota e mapa do labirinto
+docs/writeup/           write-up por etapa
+docs/referencias.md     todas as fontes citadas
+docs/revisao-coesao.md  revisão de coerência entre notas, código e write-ups
+LICENSE                 licença do repositório
 ```
 
-> **Não versionar** `gen_data.py` do repositório oficial: ele contém a flag e gera a senha. A entrega inclui apenas o binário.
+> **Não versionar** `gen_data.py` do repositório oficial: ele contém a flag e gera a senha. A solução não depende dele, e a entrega inclui apenas o binário.
 
-## Reprodução rápida (etapa P1)
+## Pré-requisitos e ambiente
+
+- **Python 3.9+**, sem dependências externas (apenas biblioteca padrão).
+- **Linux x86-64 com glibc** para executar o binário original. Em outros sistemas, use o emulador (P3), que não precisa do ELF: ver `--emulator-only` na etapa P5.
+- Binário: ELF x86-64 PIE, não *stripped*.
+- glibc de referência: **2.39**. Registre sempre a versão usada ao reproduzir (`getconf GNU_LIBC_VERSION`). A auditoria recebida também relata sucesso com a glibc 2.44.
+- Por que a glibc importa: `%4$s` lê o próprio buffer de saída do `sprintf`, comportamento indefinido que é determinístico na glibc alvo.
+- Docker e matriz de versões de glibc: ver [Ambiente Docker (P6)](#ambiente-docker-e-matriz-de-glibc-p6--em-andamento).
+
+## Reprodução passo a passo
+
+Os artefatos de `out/` já estão versionados, então cada etapa pode ser executada de forma independente. Para refazer tudo do zero, rode na ordem **P1 → P4 → P2 → P3 → P5**, pois a rota gerada pelo P4 é a entrada das demais etapas.
 
 ```bash
-# 1. extrair a tabela de instruções do binário
-python3 src/extract.py sprint --out out/M.bin
+# 0. conferir a integridade do binário
+sha256sum -c sprint.sha256
 
-# 2. gerar o disassembly (texto legível + JSON estruturado)
+# P1: extrair a tabela de instruções e gerar o disassembly
+python3 src/extract.py sprint --out out/M.bin
 python3 src/disasm.py out/M.bin --json out/sprint.json --txt out/sprint.asm
 
-# (opcional) conferir a integridade do binário
-sha256sum -c sprint.sha256
-```
+# P4: resolver o labirinto (gera a senha de 254 movimentos)
+python3 src/solve_maze.py sprint --path-out out/maze_path.txt --map-out out/maze_map.txt
 
-Não há dependências externas (Python 3, biblioteca padrão apenas).
-
-## Lifting e programa estruturado (etapa P2 — Antonio)
-
-O P2 consome o JSON do P1, confere as strings com o ELF e recupera os acessos
-indiretos, os registradores `r0..r7` e os dois destinos de cada desvio de baixo
-byte. A organização em laços é um modelo manual auditado para o hash do Sprint
-original. São **146 instruções reais**; os dois registros P1 em `0xf000` e
-`0xf102` são dados. O mapa genérico de nomes do P1 não deve ser usado como mapa
-concreto de registradores; o P2 recupera a semântica pelo campo `raw`.
-
-```bash
+# P2: lifting para pseudocódigo e programa estruturado
 python3 src/lift.py out/sprint.json --binary sprint --out-dir out
 python3 out/p2_program.py --input out/maze_path.txt --json
+
+# P3: emulador próprio (sem sprintf)
+python3 src/emulate.py --input out/maze_path.txt --json
+
+# P5: validação ponta a ponta + teste diferencial ELF x P3 x P2
+python3 src/validate.py
+
+# todos os testes automatizados
 python3 -m unittest discover -s tests -v
 ```
 
-Saídas: `out/p2_ir.json`, `out/p2_pseudocode.txt` e `out/p2_program.py`. O Python
-gerado explica e executa o crivo, a validação de comprimento e de percurso e a
-decifração sem `sprintf`; funciona também no macOS com Python 3.9+. Os testes
-P2 comparam o modelo com uma referência de IR, sem executar o ELF original.
-
-## Solver do labirinto (etapa P4)
+**Conferir a flag no binário original.** Neste checkout o arquivo `sprint` não tem o bit de execução. A chamada pelo loader executa os mesmos bytes sem alterar o arquivo:
 
 ```bash
-python3 src/solve_maze.py sprint --path-out out/maze_path.txt --map-out out/maze_map.txt
-wc -c out/maze_path.txt   # 255 bytes: 254 movimentos + newline
-sha256sum -c sprint.sha256
-getconf GNU_LIBC_VERSION
 /lib64/ld-linux-x86-64.so.2 ./sprint < out/maze_path.txt
-python3 -m unittest discover -s tests -v
 ```
 
-O script lê o símbolo `M` do **binário original** usando o extrator P1. Reconstrói o crivo de primos, usa os 256 índices em `M[0xf000:0xf100]` para formar a grade 16×16 e decodifica o início (`M[0xf100]`) e os nove checkpoints (`M[0xf103:0xf10c]`). A busca em largura usa o estado `(posição, próximo checkpoint)`; assim visita os nove pontos **na ordem exigida**. Ela exige uma rota mínima com 254 movimentos, todos dentro da grade e em células livres. A senha fica em [out/maze_path.txt](out/maze_path.txt) e a visualização para slides em [out/maze_map.txt](out/maze_map.txt). Detalhes e evidências: [write-up P4](docs/writeup/04-p4-solver.md). 
+Com a glibc 2.39, a saída esperada é:
 
-Neste checkout, `sprint` não tem o bit de execução; a chamada pela loader acima executa os **mesmos bytes** sem alterar o arquivo. Com glibc 2.39, a rota gerada imprimiu `Flag: CTF{n0w_ev3n_pr1n7f_1s_7ur1ng_c0mpl3te}`. A auditoria recebida também relata sucesso com glibc 2.44; registre a versão usada ao reproduzir.
+```
+Flag: CTF{n0w_ev3n_pr1n7f_1s_7ur1ng_c0mpl3te}
+```
 
-## Ambiente
+## Etapas e entregas
 
-- Binário: ELF x86-64 PIE, não *stripped*. SHA-256 em `sprint.sha256`.
-- glibc de referência: 2.39 (registrar sempre a versão usada — ver write-up).
-- Motivo: `%4$s` lê o próprio buffer de saída de `sprintf` (comportamento indefinido, determinístico na glibc alvo).
+### P1 — Extração e disassembly
 
-## Divisão do trabalho (11 pessoas)
+Lê do binário a tabela de strings de formato e os endereços, e classifica cada string em uma instrução da ISA implícita. A saída é um disassembly legível (`out/sprint.asm`) e estruturado (`out/sprint.json`).
+Write-up: [01-p1-extracao-disassembly.md](docs/writeup/01-p1-extracao-disassembly.md).
 
-| Frente | Pessoas | Entrega |
-|---|---|---|
-| Código / ISA | P1–P4 | extração+disassembly, lifting, emulador, solver do labirinto |
-| Testes e ambiente | P5–P6 | validação ponta a ponta, matriz de glibc, Docker |
-| Slides e teoria | P7–P9 | semântica de format strings, Turing-completude, roteiro/demo |
-| Write-up e repositório | P10–P11 | documento técnico, README e referências |
+### P2 — Lifting para pseudocódigo
 
-Este repositório contém as entregas **P1** (Rafaela), **P2** (Antonio), **P3** (emulador próprio) e **P4** (Cauã):
-ver `docs/writeup/01-p1-extracao-disassembly.md`, `src/lift.py`,
-`out/p2_pseudocode.txt`, `out/p2_program.py` e `docs/writeup/04-p4-solver.md`.
+Consome o JSON do P1, confere as strings com o ELF e recupera os acessos indiretos, os registradores `r0..r7` e os dois destinos de cada desvio de baixo byte. São **146 instruções reais**; os dois registros do P1 em `0xf000` e `0xf102` são dados. O mapa genérico de nomes do P1 não deve ser usado como mapa concreto de registradores: o P2 recupera a semântica pelo campo `raw`.
 
-## Validação (etapa P5)
+A organização em laços é um modelo manual auditado para o hash do Sprint original. O Python gerado explica e executa o crivo, a validação de comprimento e de percurso e a decifração sem `sprintf`, e funciona também no macOS com Python 3.9+.
+
+Saídas: `out/p2_ir.json`, `out/p2_pseudocode.txt` e `out/p2_program.py`. Os testes do P2 comparam o modelo com uma referência de IR, sem executar o ELF original.
+
+### P3 — Emulador próprio
+
+Interpretador da ISA recuperada que executa o programa diretamente das strings extraídas do ELF, **sem `sprintf`**, sem o P2 e sem o solver. Oferece memória, registradores, execução passo a passo, trace JSONL e limite de instruções.
+
+```bash
+python3 src/emulate.py --input out/maze_path.txt --trace out/p3_trace.jsonl
+```
+
+A rota válida termina após 19.234 instruções e recupera a flag. As saídas do emulador são comparadas com o P2 e com o stdout do ELF original (ver P5).
+Write-up: [03-p3-emulador.md](docs/writeup/03-p3-emulador.md).
+
+### P4 — Solver do labirinto
+
+Lê o símbolo `M` do **binário original** usando o extrator do P1, reconstrói o crivo de primos e usa os 256 índices em `M[0xf000:0xf100]` para formar a grade 16×16. Decodifica o início (`M[0xf100]`) e os nove checkpoints (`M[0xf103:0xf10c]`). A busca em largura usa o estado `(posição, próximo checkpoint)`, visitando os nove pontos **na ordem exigida**, e exige uma rota mínima de 254 movimentos dentro da grade e em células livres.
+
+A senha fica em [out/maze_path.txt](out/maze_path.txt) (255 bytes: 254 movimentos + newline) e a visualização para os slides em [out/maze_map.txt](out/maze_map.txt).
+Write-up: [04-p4-solver.md](docs/writeup/04-p4-solver.md).
+
+### P5 — Validação
+
+Script ponta a ponta: executa o binário original com a entrada gerada pelo P4 e confere que a flag aparece. Também faz testes diferenciais entre o ELF, o emulador (P3) e o modelo do P2, com entradas válidas, parciais e inválidas.
 
 ```bash
 python3 src/validate.py                  # E2E com o ELF + diferencial ELF x P3 x P2
 python3 src/validate.py --emulator-only  # sem o ELF (ex.: Windows sem Docker)
 ```
 
-Detalhes: [write-up P5](docs/writeup/05-p5-validacao.md).
+### Ambiente Docker e matriz de glibc (P6) — em andamento
 
-## Emulador próprio (etapa P3)
+> Seção a ser preenchida pela responsável pelo P6: Dockerfile isolado com a versão da glibc registrada, testes do binário em outras distros/versões (onde o comportamento indefinido funciona e onde quebra) e adaptações documentadas, com hashes do binário e versões.
 
-```bash
-python3 src/emulate.py --input out/maze_path.txt --json
-python3 src/emulate.py --input out/maze_path.txt --trace out/p3_trace.jsonl
-python3 -m unittest discover -s tests -v
-```
+### Write-up técnico (P10) — em andamento
 
-Executa a ISA diretamente das strings extraídas do ELF, sem sprintf, P2 ou solver.
-Oferece memória, registradores, execução passo a passo, trace JSONL e limite de
-instruções. A rota válida termina após 19.234 instruções e recupera a flag.
-A suíte completa passou em 18 testes; P3 compara 62 entradas com P2 e com stdout
-do ELF original em glibc 2.39. O teste nativo é ignorado em outras plataformas.
-Consulte [write-up P3](docs/writeup/03-p3-emulador.md) e
-[revisão de coesão](docs/revisao-coesao.md).
+> Documento principal, com a seção "o que acrescentamos aos materiais públicos". Os write-ups por etapa estão em [docs/writeup/](docs/writeup/).
+
+## Divisão do trabalho
+
+Grupo de 11 pessoas.
+
+| Frente | Etapas | Entrega |
+|---|---|---|
+| Código / ISA | P1–P4 | extração + disassembly, lifting, emulador, solver do labirinto |
+| Testes e ambiente | P5–P6 | validação ponta a ponta, matriz de glibc, Docker |
+| Slides e teoria | P7–P9 | semântica de format strings, Turing-completude, roteiro/demo |
+| Write-up e repositório | P10–P11 | documento técnico, README e referências |
+
+## Licença
+
+Ver [LICENSE](LICENSE). O desafio original pertence ao Google CTF 2020; este repositório contém apenas material de análise e reprodução desenvolvido pelo grupo.
