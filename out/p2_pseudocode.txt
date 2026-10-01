@@ -1,0 +1,161 @@
+# P2 - pseudocódigo nomeado com labels (não é Python executável)
+# load16/store16: little-endian, inclusive endereços ímpares
+# JNZ8 testa apenas byte baixo; leituras usam estado anterior à chamada
+# r0..r7 mudam de papel entre fases; ver documento P2
+
+
+# Fase: crivo
+L_0000: r0 <- (28672) & 0xffff; goto L_0026
+L_0026: dptr <- (r0) & 0xffff; goto L_004a
+L_004a: store16(memory, dptr) <- (1) & 0xffff; goto L_006c
+L_006c: dptr <- (r0 + 2) & 0xffff; goto L_0095
+L_0095: store16(memory, dptr) <- (1) & 0xffff; goto L_00b7
+L_00b7: r1 <- (2) & 0xffff; goto L_00da
+L_00da: r4 <- (r1 + r1) & 0xffff; goto L_0108
+L_0108: dptr <- (r4 + 28672) & 0xffff; goto L_0136
+L_0136: r3 <- (load16(memory, dptr)) & 0xffff; goto L_015b
+L_015b: if (r3 & 0xff) != 0: goto L_0324; else: goto L_0180
+L_0180: r2 <- (r1 + r1) & 0xffff; goto L_01ae
+L_01ae: dptr <- (-17) & 0xffff; goto L_01d4
+L_01d4: store16(memory, dptr) <- (r2) & 0xffff; goto L_01f9
+L_01f9: dptr <- (-16) & 0xffff; goto L_021f
+L_021f: r3 <- (load16(memory, dptr)) & 0xffff; goto L_0244
+L_0244: if (r3 & 0xff) != 0: goto L_0324; else: goto L_0269
+L_0269: r4 <- (r2 + r2) & 0xffff; goto L_0297
+L_0297: dptr <- (r4 + 28672) & 0xffff; goto L_02c5
+L_02c5: store16(memory, dptr) <- (1) & 0xffff; goto L_02e7
+L_02e7: r2 <- (r2 + r1) & 0xffff; goto L_0315
+L_0315: goto L_01ae
+L_0324: r1 <- (r1 + 1) & 0xffff; goto L_034f
+L_034f: if (r1 & 0xff) != 0: goto L_00da; else: goto L_0374
+
+# Fase: comprimento
+L_0374: r0 <- (-8192) & 0xffff; goto L_039a
+L_039a: r1 <- (0) & 0xffff; goto L_03bd
+L_03bd: dptr <- (r0) & 0xffff; goto L_03e1
+L_03e1: r2 <- (load16(memory, dptr)) & 0xffff; goto L_0406
+L_0406: if (r2 & 0xff) != 0: goto L_043a; else: goto L_042b
+L_042b: goto L_04a1
+L_043a: r1 <- (r1 + -1) & 0xffff; goto L_0469
+L_0469: r0 <- (r0 + 1) & 0xffff; goto L_0492
+L_0492: goto L_03bd
+L_04a1: r4 <- (r1 + 254) & 0xffff; goto L_04d0
+L_04d0: if (r4 & 0xff) != 0: goto L_0504; else: goto L_04f5
+L_04f5: goto L_0536
+L_0504: r7 <- (5) & 0xffff; goto L_0527
+L_0527: goto L_13d9
+
+# Fase: labirinto
+L_0536: r0 <- (0) & 0xffff; goto L_0558
+L_0558: r1 <- (0) & 0xffff; goto L_057b
+L_057b: dptr <- (-3840) & 0xffff; goto L_05a1
+L_05a1: r2 <- (load16(memory, dptr)) & 0xffff; goto L_05c6
+L_05c6: r3 <- (1) & 0xffff; goto L_05e9
+L_05e9: r7 <- (0) & 0xffff; goto L_060c
+L_060c: dptr <- (r0 + -8192) & 0xffff; goto L_0639
+L_0639: r4 <- (load16(memory, dptr)) & 0xffff; goto L_065e
+L_065e: if (r4 & 0xff) != 0: goto L_0692; else: goto L_0683
+L_0683: goto L_0d97
+L_0692: r0 <- (r0 + 1) & 0xffff; goto L_06bb
+L_06bb: r5 <- (r4 + -117) & 0xffff; goto L_06ea
+L_06ea: if (r5 & 0xff) != 0: goto L_0745; else: goto L_070f
+L_070f: r4 <- (-16) & 0xffff; goto L_0736
+L_0736: goto L_0945
+L_0745: r5 <- (r4 + -114) & 0xffff; goto L_0774
+L_0774: if (r5 & 0xff) != 0: goto L_07cb; else: goto L_0799
+L_0799: r4 <- (1) & 0xffff; goto L_07bc
+L_07bc: goto L_0945
+L_07cb: r5 <- (r4 + -100) & 0xffff; goto L_07fa
+L_07fa: if (r5 & 0xff) != 0: goto L_0852; else: goto L_081f
+L_081f: r4 <- (16) & 0xffff; goto L_0843
+L_0843: goto L_0945
+L_0852: r5 <- (r4 + -108) & 0xffff; goto L_0881
+L_0881: if (r5 & 0xff) != 0: goto L_08dc; else: goto L_08a6
+L_08a6: r4 <- (-1) & 0xffff; goto L_08cd
+L_08cd: goto L_0945
+L_08dc: r3 <- (0) & 0xffff; goto L_08ff
+L_08ff: r4 <- (0) & 0xffff; goto L_0922
+L_0922: r7 <- (1) & 0xffff; goto L_0945
+L_0945: r2 <- (r2 + r4) & 0xffff; goto L_0973
+L_0973: dptr <- (-17) & 0xffff; goto L_0999
+L_0999: store16(memory, dptr) <- (r2) & 0xffff; goto L_09be
+L_09be: dptr <- (-16) & 0xffff; goto L_09e4
+L_09e4: r4 <- (load16(memory, dptr)) & 0xffff; goto L_0a09
+L_0a09: if (r4 & 0xff) != 0: goto L_0d65; else: goto L_0a2e
+L_0a2e: dptr <- (r2 + -4096) & 0xffff; goto L_0a5c
+L_0a5c: r4 <- (load16(memory, dptr)) & 0xffff; goto L_0a81
+L_0a81: dptr <- (-17) & 0xffff; goto L_0aa7
+L_0aa7: store16(memory, dptr) <- (r4) & 0xffff; goto L_0acc
+L_0acc: dptr <- (-16) & 0xffff; goto L_0af2
+L_0af2: store16(memory, dptr) <- (0) & 0xffff; goto L_0b14
+L_0b14: dptr <- (-17) & 0xffff; goto L_0b3a
+L_0b3a: r4 <- (load16(memory, dptr)) & 0xffff; goto L_0b5f
+L_0b5f: r4 <- (r4 + r4) & 0xffff; goto L_0b8d
+L_0b8d: dptr <- (r4 + 28672) & 0xffff; goto L_0bbb
+L_0bbb: r4 <- (load16(memory, dptr)) & 0xffff; goto L_0be0
+L_0be0: if (r4 & 0xff) != 0: goto L_0d10; else: goto L_0c05
+L_0c05: r4 <- (r1 + 1) & 0xffff; goto L_0c30
+L_0c30: dptr <- (r4 + -3838) & 0xffff; goto L_0c5e
+L_0c5e: r4 <- (load16(memory, dptr)) & 0xffff; goto L_0c83
+L_0c83: r4 <- (r4 + r2) & 0xffff; goto L_0cb1
+L_0cb1: if (r4 & 0xff) != 0: goto L_0d01; else: goto L_0cd6
+L_0cd6: r1 <- (r1 + 1) & 0xffff; goto L_0d01
+L_0d01: goto L_060c
+L_0d10: r3 <- (0) & 0xffff; goto L_0d33
+L_0d33: r7 <- (2) & 0xffff; goto L_0d56
+L_0d56: goto L_060c
+L_0d65: r7 <- (4) & 0xffff; goto L_0d88
+L_0d88: halt
+L_0d97: if (r3 & 0xff) != 0: goto L_0dcb; else: goto L_0dbc
+L_0dbc: goto L_13d9
+L_0dcb: r4 <- (r1 + -9) & 0xffff; goto L_0dfa
+L_0dfa: if (r4 & 0xff) != 0: goto L_0e2e; else: goto L_0e1f
+L_0e1f: goto L_0e60
+L_0e2e: r7 <- (3) & 0xffff; goto L_0e51
+L_0e51: goto L_13d9
+
+# Fase: decifracao
+L_0e60: r0 <- (0) & 0xffff; goto L_0e82
+L_0e82: r1 <- (0) & 0xffff; goto L_0ea5
+L_0ea5: r2 <- (r0 + -39) & 0xffff; goto L_0ed3
+L_0ed3: if (r2 & 0xff) != 0: goto L_0f07; else: goto L_0ef8
+L_0ef8: goto L_137b
+L_0f07: r3 <- (4) & 0xffff; goto L_0f2a
+L_0f2a: r2 <- (0) & 0xffff; goto L_0f4d
+L_0f4d: r2 <- (r2 + r2) & 0xffff; goto L_0f7b
+L_0f7b: r2 <- (r2 + r2) & 0xffff; goto L_0fa9
+L_0fa9: dptr <- (r1 + -8192) & 0xffff; goto L_0fd7
+L_0fd7: r4 <- (load16(memory, dptr)) & 0xffff; goto L_0ffc
+L_0ffc: r5 <- (r4 + -117) & 0xffff; goto L_102b
+L_102b: if (r5 & 0xff) != 0: goto L_105f; else: goto L_1050
+L_1050: goto L_1218
+L_105f: r5 <- (r4 + -114) & 0xffff; goto L_108e
+L_108e: if (r5 & 0xff) != 0: goto L_10ed; else: goto L_10b3
+L_10b3: r2 <- (r2 + 1) & 0xffff; goto L_10de
+L_10de: goto L_1218
+L_10ed: r5 <- (r4 + -100) & 0xffff; goto L_111c
+L_111c: if (r5 & 0xff) != 0: goto L_117b; else: goto L_1141
+L_1141: r2 <- (r2 + 2) & 0xffff; goto L_116c
+L_116c: goto L_1218
+L_117b: r5 <- (r4 + -108) & 0xffff; goto L_11aa
+L_11aa: if (r5 & 0xff) != 0: goto L_1209; else: goto L_11cf
+L_11cf: r2 <- (r2 + 3) & 0xffff; goto L_11fa
+L_11fa: goto L_1218
+L_1209: goto L_13d9
+L_1218: r1 <- (r1 + 1) & 0xffff; goto L_1243
+L_1243: r3 <- (r3 + -1) & 0xffff; goto L_1272
+L_1272: if (r3 & 0xff) != 0: goto L_0f4d; else: goto L_1297
+L_1297: dptr <- (r0 + -3828) & 0xffff; goto L_12c4
+L_12c4: r3 <- (load16(memory, dptr)) & 0xffff; goto L_12e9
+L_12e9: dptr <- (r0 + -6144) & 0xffff; goto L_1316
+L_1316: store16(memory, dptr) <- (r3 + r2) & 0xffff; goto L_1343
+L_1343: r0 <- (r0 + 1) & 0xffff; goto L_136c
+L_136c: goto L_0ea5
+L_137b: dptr <- (r0 + -6144) & 0xffff; goto L_13a8
+L_13a8: store16(memory, dptr) <- (0) & 0xffff; goto L_13ca
+L_13ca: halt
+
+# Fase: falha
+L_13d9: dptr <- (-6144) & 0xffff; goto L_13ff
+L_13ff: store16(memory, dptr) <- (0) & 0xffff; goto L_1421
+L_1421: halt

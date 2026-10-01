@@ -1,0 +1,2167 @@
+{
+  "binary_sha256": "925510065b1cd97c53bb6f46b64fbf9fe5a039aa892d6f5609e200e2c74d726a",
+  "instructions": 146,
+  "ignored_data_offsets": [
+    61440,
+    61698
+  ],
+  "branch_semantics": "low_byte_nonzero",
+  "structuring": "manual audited Sprint profile",
+  "program": [
+    {
+      "offset": 0,
+      "phase": "crivo",
+      "raw": "%1$00038s%3$hn%1$65498s%1$28672s%9$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r0",
+        "constant": 28672,
+        "terms": []
+      },
+      "successors": [
+        38
+      ],
+      "next": 38
+    },
+    {
+      "offset": 38,
+      "phase": "crivo",
+      "raw": "%1$00074s%3$hn%1$65462s%1$*8$s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 0,
+        "terms": [
+          "r0"
+        ]
+      },
+      "successors": [
+        74
+      ],
+      "next": 74
+    },
+    {
+      "offset": 74,
+      "phase": "crivo",
+      "raw": "%1$00108s%3$hn%1$65428s%1$1s%6$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "store16(memory, dptr)",
+        "constant": 1,
+        "terms": []
+      },
+      "successors": [
+        108
+      ],
+      "next": 108
+    },
+    {
+      "offset": 108,
+      "phase": "crivo",
+      "raw": "%1$00149s%3$hn%1$65387s%1$*8$s%1$2s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 2,
+        "terms": [
+          "r0"
+        ]
+      },
+      "successors": [
+        149
+      ],
+      "next": 149
+    },
+    {
+      "offset": 149,
+      "phase": "crivo",
+      "raw": "%1$00183s%3$hn%1$65353s%1$1s%6$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "store16(memory, dptr)",
+        "constant": 1,
+        "terms": []
+      },
+      "successors": [
+        183
+      ],
+      "next": 183
+    },
+    {
+      "offset": 183,
+      "phase": "crivo",
+      "raw": "%1$00218s%3$hn%1$65318s%1$2s%11$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r1",
+        "constant": 2,
+        "terms": []
+      },
+      "successors": [
+        218
+      ],
+      "next": 218
+    },
+    {
+      "offset": 218,
+      "phase": "crivo",
+      "raw": "%1$00264s%3$hn%1$65272s%1$*10$s%1$*10$s%17$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r4",
+        "constant": 0,
+        "terms": [
+          "r1",
+          "r1"
+        ]
+      },
+      "successors": [
+        264
+      ],
+      "next": 264
+    },
+    {
+      "offset": 264,
+      "phase": "crivo",
+      "raw": "%1$00310s%3$hn%1$65226s%1$28672s%1$*16$s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 28672,
+        "terms": [
+          "r4"
+        ]
+      },
+      "successors": [
+        310
+      ],
+      "next": 310
+    },
+    {
+      "offset": 310,
+      "phase": "crivo",
+      "raw": "%1$00347s%3$hn%1$65189s%1$*5$s%15$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r3",
+        "constant": 0,
+        "terms": [
+          "load16(memory, dptr)"
+        ]
+      },
+      "successors": [
+        347
+      ],
+      "next": 347
+    },
+    {
+      "offset": 347,
+      "phase": "crivo",
+      "raw": "%14$c%1$00419s%2$c%4$s%1$65499s%3$hn",
+      "op": "JNZ8",
+      "condition": "r3",
+      "zero": 384,
+      "nonzero": 804,
+      "successors": [
+        384,
+        804
+      ]
+    },
+    {
+      "offset": 384,
+      "phase": "crivo",
+      "raw": "%1$00430s%3$hn%1$65106s%1$*10$s%1$*10$s%13$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r2",
+        "constant": 0,
+        "terms": [
+          "r1",
+          "r1"
+        ]
+      },
+      "successors": [
+        430
+      ],
+      "next": 430
+    },
+    {
+      "offset": 430,
+      "phase": "crivo",
+      "raw": "%1$00468s%3$hn%1$65068s%1$65519s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 65519,
+        "terms": []
+      },
+      "successors": [
+        468
+      ],
+      "next": 468
+    },
+    {
+      "offset": 468,
+      "phase": "crivo",
+      "raw": "%1$00505s%3$hn%1$65031s%1$*12$s%6$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "store16(memory, dptr)",
+        "constant": 0,
+        "terms": [
+          "r2"
+        ]
+      },
+      "successors": [
+        505
+      ],
+      "next": 505
+    },
+    {
+      "offset": 505,
+      "phase": "crivo",
+      "raw": "%1$00543s%3$hn%1$64993s%1$65520s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 65520,
+        "terms": []
+      },
+      "successors": [
+        543
+      ],
+      "next": 543
+    },
+    {
+      "offset": 543,
+      "phase": "crivo",
+      "raw": "%1$00580s%3$hn%1$64956s%1$*5$s%15$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r3",
+        "constant": 0,
+        "terms": [
+          "load16(memory, dptr)"
+        ]
+      },
+      "successors": [
+        580
+      ],
+      "next": 580
+    },
+    {
+      "offset": 580,
+      "phase": "crivo",
+      "raw": "%14$c%1$00186s%2$c%4$s%1$00429s%3$hn",
+      "op": "JNZ8",
+      "condition": "r3",
+      "zero": 617,
+      "nonzero": 804,
+      "successors": [
+        617,
+        804
+      ]
+    },
+    {
+      "offset": 617,
+      "phase": "crivo",
+      "raw": "%1$00663s%3$hn%1$64873s%1$*12$s%1$*12$s%17$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r4",
+        "constant": 0,
+        "terms": [
+          "r2",
+          "r2"
+        ]
+      },
+      "successors": [
+        663
+      ],
+      "next": 663
+    },
+    {
+      "offset": 663,
+      "phase": "crivo",
+      "raw": "%1$00709s%3$hn%1$64827s%1$28672s%1$*16$s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 28672,
+        "terms": [
+          "r4"
+        ]
+      },
+      "successors": [
+        709
+      ],
+      "next": 709
+    },
+    {
+      "offset": 709,
+      "phase": "crivo",
+      "raw": "%1$00743s%3$hn%1$64793s%1$1s%6$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "store16(memory, dptr)",
+        "constant": 1,
+        "terms": []
+      },
+      "successors": [
+        743
+      ],
+      "next": 743
+    },
+    {
+      "offset": 743,
+      "phase": "crivo",
+      "raw": "%1$00789s%3$hn%1$64747s%1$*12$s%1$*10$s%13$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r2",
+        "constant": 0,
+        "terms": [
+          "r2",
+          "r1"
+        ]
+      },
+      "successors": [
+        789
+      ],
+      "next": 789
+    },
+    {
+      "offset": 789,
+      "phase": "crivo",
+      "raw": "%1$00430s%3$hn",
+      "op": "JMP",
+      "successors": [
+        430
+      ],
+      "next": 430
+    },
+    {
+      "offset": 804,
+      "phase": "crivo",
+      "raw": "%1$00847s%3$hn%1$64689s%1$*10$s%1$1s%11$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r1",
+        "constant": 1,
+        "terms": [
+          "r1"
+        ]
+      },
+      "successors": [
+        847
+      ],
+      "next": 847
+    },
+    {
+      "offset": 847,
+      "phase": "crivo",
+      "raw": "%10$c%1$64869s%2$c%4$s%1$01549s%3$hn",
+      "op": "JNZ8",
+      "condition": "r1",
+      "zero": 884,
+      "nonzero": 218,
+      "successors": [
+        884,
+        218
+      ]
+    },
+    {
+      "offset": 884,
+      "phase": "comprimento",
+      "raw": "%1$00922s%3$hn%1$64614s%1$57344s%9$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r0",
+        "constant": 57344,
+        "terms": []
+      },
+      "successors": [
+        922
+      ],
+      "next": 922
+    },
+    {
+      "offset": 922,
+      "phase": "comprimento",
+      "raw": "%1$00957s%3$hn%1$64579s%1$0s%11$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r1",
+        "constant": 0,
+        "terms": []
+      },
+      "successors": [
+        957
+      ],
+      "next": 957
+    },
+    {
+      "offset": 957,
+      "phase": "comprimento",
+      "raw": "%1$00993s%3$hn%1$64543s%1$*8$s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 0,
+        "terms": [
+          "r0"
+        ]
+      },
+      "successors": [
+        993
+      ],
+      "next": 993
+    },
+    {
+      "offset": 993,
+      "phase": "comprimento",
+      "raw": "%1$01030s%3$hn%1$64506s%1$*5$s%13$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r2",
+        "constant": 0,
+        "terms": [
+          "load16(memory, dptr)"
+        ]
+      },
+      "successors": [
+        1030
+      ],
+      "next": 1030
+    },
+    {
+      "offset": 1030,
+      "phase": "comprimento",
+      "raw": "%12$c%1$00014s%2$c%4$s%1$01051s%3$hn",
+      "op": "JNZ8",
+      "condition": "r2",
+      "zero": 1067,
+      "nonzero": 1082,
+      "successors": [
+        1067,
+        1082
+      ]
+    },
+    {
+      "offset": 1067,
+      "phase": "comprimento",
+      "raw": "%1$01185s%3$hn",
+      "op": "JMP",
+      "successors": [
+        1185
+      ],
+      "next": 1185
+    },
+    {
+      "offset": 1082,
+      "phase": "comprimento",
+      "raw": "%1$01129s%3$hn%1$64407s%1$*10$s%1$65535s%11$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r1",
+        "constant": 65535,
+        "terms": [
+          "r1"
+        ]
+      },
+      "successors": [
+        1129
+      ],
+      "next": 1129
+    },
+    {
+      "offset": 1129,
+      "phase": "comprimento",
+      "raw": "%1$01170s%3$hn%1$64366s%1$*8$s%1$1s%9$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r0",
+        "constant": 1,
+        "terms": [
+          "r0"
+        ]
+      },
+      "successors": [
+        1170
+      ],
+      "next": 1170
+    },
+    {
+      "offset": 1170,
+      "phase": "comprimento",
+      "raw": "%1$00957s%3$hn",
+      "op": "JMP",
+      "successors": [
+        957
+      ],
+      "next": 957
+    },
+    {
+      "offset": 1185,
+      "phase": "comprimento",
+      "raw": "%1$01232s%3$hn%1$64304s%1$*10$s%1$00254s%17$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r4",
+        "constant": 254,
+        "terms": [
+          "r1"
+        ]
+      },
+      "successors": [
+        1232
+      ],
+      "next": 1232
+    },
+    {
+      "offset": 1232,
+      "phase": "comprimento",
+      "raw": "%16$c%1$00014s%2$c%4$s%1$01253s%3$hn",
+      "op": "JNZ8",
+      "condition": "r4",
+      "zero": 1269,
+      "nonzero": 1284,
+      "successors": [
+        1269,
+        1284
+      ]
+    },
+    {
+      "offset": 1269,
+      "phase": "comprimento",
+      "raw": "%1$01334s%3$hn",
+      "op": "JMP",
+      "successors": [
+        1334
+      ],
+      "next": 1334
+    },
+    {
+      "offset": 1284,
+      "phase": "comprimento",
+      "raw": "%1$01319s%3$hn%1$64217s%1$5s%23$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r7",
+        "constant": 5,
+        "terms": []
+      },
+      "successors": [
+        1319
+      ],
+      "next": 1319
+    },
+    {
+      "offset": 1319,
+      "phase": "comprimento",
+      "raw": "%1$05081s%3$hn",
+      "op": "JMP",
+      "successors": [
+        5081
+      ],
+      "next": 5081
+    },
+    {
+      "offset": 1334,
+      "phase": "labirinto",
+      "raw": "%1$01368s%3$hn%1$64168s%1$0s%9$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r0",
+        "constant": 0,
+        "terms": []
+      },
+      "successors": [
+        1368
+      ],
+      "next": 1368
+    },
+    {
+      "offset": 1368,
+      "phase": "labirinto",
+      "raw": "%1$01403s%3$hn%1$64133s%1$0s%11$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r1",
+        "constant": 0,
+        "terms": []
+      },
+      "successors": [
+        1403
+      ],
+      "next": 1403
+    },
+    {
+      "offset": 1403,
+      "phase": "labirinto",
+      "raw": "%1$01441s%3$hn%1$64095s%1$61696s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 61696,
+        "terms": []
+      },
+      "successors": [
+        1441
+      ],
+      "next": 1441
+    },
+    {
+      "offset": 1441,
+      "phase": "labirinto",
+      "raw": "%1$01478s%3$hn%1$64058s%1$*5$s%13$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r2",
+        "constant": 0,
+        "terms": [
+          "load16(memory, dptr)"
+        ]
+      },
+      "successors": [
+        1478
+      ],
+      "next": 1478
+    },
+    {
+      "offset": 1478,
+      "phase": "labirinto",
+      "raw": "%1$01513s%3$hn%1$64023s%1$1s%15$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r3",
+        "constant": 1,
+        "terms": []
+      },
+      "successors": [
+        1513
+      ],
+      "next": 1513
+    },
+    {
+      "offset": 1513,
+      "phase": "labirinto",
+      "raw": "%1$01548s%3$hn%1$63988s%1$0s%23$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r7",
+        "constant": 0,
+        "terms": []
+      },
+      "successors": [
+        1548
+      ],
+      "next": 1548
+    },
+    {
+      "offset": 1548,
+      "phase": "labirinto",
+      "raw": "%1$01593s%3$hn%1$63943s%1$57344s%1$*8$s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 57344,
+        "terms": [
+          "r0"
+        ]
+      },
+      "successors": [
+        1593
+      ],
+      "next": 1593
+    },
+    {
+      "offset": 1593,
+      "phase": "labirinto",
+      "raw": "%1$01630s%3$hn%1$63906s%1$*5$s%17$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r4",
+        "constant": 0,
+        "terms": [
+          "load16(memory, dptr)"
+        ]
+      },
+      "successors": [
+        1630
+      ],
+      "next": 1630
+    },
+    {
+      "offset": 1630,
+      "phase": "labirinto",
+      "raw": "%16$c%1$00014s%2$c%4$s%1$01651s%3$hn",
+      "op": "JNZ8",
+      "condition": "r4",
+      "zero": 1667,
+      "nonzero": 1682,
+      "successors": [
+        1667,
+        1682
+      ]
+    },
+    {
+      "offset": 1667,
+      "phase": "labirinto",
+      "raw": "%1$03479s%3$hn",
+      "op": "JMP",
+      "successors": [
+        3479
+      ],
+      "next": 3479
+    },
+    {
+      "offset": 1682,
+      "phase": "labirinto",
+      "raw": "%1$01723s%3$hn%1$63813s%1$*8$s%1$1s%9$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r0",
+        "constant": 1,
+        "terms": [
+          "r0"
+        ]
+      },
+      "successors": [
+        1723
+      ],
+      "next": 1723
+    },
+    {
+      "offset": 1723,
+      "phase": "labirinto",
+      "raw": "%1$01770s%3$hn%1$63766s%1$*16$s%1$65419s%19$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r5",
+        "constant": 65419,
+        "terms": [
+          "r4"
+        ]
+      },
+      "successors": [
+        1770
+      ],
+      "next": 1770
+    },
+    {
+      "offset": 1770,
+      "phase": "labirinto",
+      "raw": "%18$c%1$00053s%2$c%4$s%1$01752s%3$hn",
+      "op": "JNZ8",
+      "condition": "r5",
+      "zero": 1807,
+      "nonzero": 1861,
+      "successors": [
+        1807,
+        1861
+      ]
+    },
+    {
+      "offset": 1807,
+      "phase": "labirinto",
+      "raw": "%1$01846s%3$hn%1$63690s%1$65520s%17$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r4",
+        "constant": 65520,
+        "terms": []
+      },
+      "successors": [
+        1846
+      ],
+      "next": 1846
+    },
+    {
+      "offset": 1846,
+      "phase": "labirinto",
+      "raw": "%1$02373s%3$hn",
+      "op": "JMP",
+      "successors": [
+        2373
+      ],
+      "next": 2373
+    },
+    {
+      "offset": 1861,
+      "phase": "labirinto",
+      "raw": "%1$01908s%3$hn%1$63628s%1$*16$s%1$65422s%19$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r5",
+        "constant": 65422,
+        "terms": [
+          "r4"
+        ]
+      },
+      "successors": [
+        1908
+      ],
+      "next": 1908
+    },
+    {
+      "offset": 1908,
+      "phase": "labirinto",
+      "raw": "%18$c%1$00049s%2$c%4$s%1$01894s%3$hn",
+      "op": "JNZ8",
+      "condition": "r5",
+      "zero": 1945,
+      "nonzero": 1995,
+      "successors": [
+        1945,
+        1995
+      ]
+    },
+    {
+      "offset": 1945,
+      "phase": "labirinto",
+      "raw": "%1$01980s%3$hn%1$63556s%1$1s%17$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r4",
+        "constant": 1,
+        "terms": []
+      },
+      "successors": [
+        1980
+      ],
+      "next": 1980
+    },
+    {
+      "offset": 1980,
+      "phase": "labirinto",
+      "raw": "%1$02373s%3$hn",
+      "op": "JMP",
+      "successors": [
+        2373
+      ],
+      "next": 2373
+    },
+    {
+      "offset": 1995,
+      "phase": "labirinto",
+      "raw": "%1$02042s%3$hn%1$63494s%1$*16$s%1$65436s%19$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r5",
+        "constant": 65436,
+        "terms": [
+          "r4"
+        ]
+      },
+      "successors": [
+        2042
+      ],
+      "next": 2042
+    },
+    {
+      "offset": 2042,
+      "phase": "labirinto",
+      "raw": "%18$c%1$00050s%2$c%4$s%1$02027s%3$hn",
+      "op": "JNZ8",
+      "condition": "r5",
+      "zero": 2079,
+      "nonzero": 2130,
+      "successors": [
+        2079,
+        2130
+      ]
+    },
+    {
+      "offset": 2079,
+      "phase": "labirinto",
+      "raw": "%1$02115s%3$hn%1$63421s%1$16s%17$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r4",
+        "constant": 16,
+        "terms": []
+      },
+      "successors": [
+        2115
+      ],
+      "next": 2115
+    },
+    {
+      "offset": 2115,
+      "phase": "labirinto",
+      "raw": "%1$02373s%3$hn",
+      "op": "JMP",
+      "successors": [
+        2373
+      ],
+      "next": 2373
+    },
+    {
+      "offset": 2130,
+      "phase": "labirinto",
+      "raw": "%1$02177s%3$hn%1$63359s%1$*16$s%1$65428s%19$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r5",
+        "constant": 65428,
+        "terms": [
+          "r4"
+        ]
+      },
+      "successors": [
+        2177
+      ],
+      "next": 2177
+    },
+    {
+      "offset": 2177,
+      "phase": "labirinto",
+      "raw": "%18$c%1$00053s%2$c%4$s%1$02159s%3$hn",
+      "op": "JNZ8",
+      "condition": "r5",
+      "zero": 2214,
+      "nonzero": 2268,
+      "successors": [
+        2214,
+        2268
+      ]
+    },
+    {
+      "offset": 2214,
+      "phase": "labirinto",
+      "raw": "%1$02253s%3$hn%1$63283s%1$65535s%17$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r4",
+        "constant": 65535,
+        "terms": []
+      },
+      "successors": [
+        2253
+      ],
+      "next": 2253
+    },
+    {
+      "offset": 2253,
+      "phase": "labirinto",
+      "raw": "%1$02373s%3$hn",
+      "op": "JMP",
+      "successors": [
+        2373
+      ],
+      "next": 2373
+    },
+    {
+      "offset": 2268,
+      "phase": "labirinto",
+      "raw": "%1$02303s%3$hn%1$63233s%1$0s%15$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r3",
+        "constant": 0,
+        "terms": []
+      },
+      "successors": [
+        2303
+      ],
+      "next": 2303
+    },
+    {
+      "offset": 2303,
+      "phase": "labirinto",
+      "raw": "%1$02338s%3$hn%1$63198s%1$0s%17$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r4",
+        "constant": 0,
+        "terms": []
+      },
+      "successors": [
+        2338
+      ],
+      "next": 2338
+    },
+    {
+      "offset": 2338,
+      "phase": "labirinto",
+      "raw": "%1$02373s%3$hn%1$63163s%1$1s%23$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r7",
+        "constant": 1,
+        "terms": []
+      },
+      "successors": [
+        2373
+      ],
+      "next": 2373
+    },
+    {
+      "offset": 2373,
+      "phase": "labirinto",
+      "raw": "%1$02419s%3$hn%1$63117s%1$*12$s%1$*16$s%13$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r2",
+        "constant": 0,
+        "terms": [
+          "r2",
+          "r4"
+        ]
+      },
+      "successors": [
+        2419
+      ],
+      "next": 2419
+    },
+    {
+      "offset": 2419,
+      "phase": "labirinto",
+      "raw": "%1$02457s%3$hn%1$63079s%1$65519s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 65519,
+        "terms": []
+      },
+      "successors": [
+        2457
+      ],
+      "next": 2457
+    },
+    {
+      "offset": 2457,
+      "phase": "labirinto",
+      "raw": "%1$02494s%3$hn%1$63042s%1$*12$s%6$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "store16(memory, dptr)",
+        "constant": 0,
+        "terms": [
+          "r2"
+        ]
+      },
+      "successors": [
+        2494
+      ],
+      "next": 2494
+    },
+    {
+      "offset": 2494,
+      "phase": "labirinto",
+      "raw": "%1$02532s%3$hn%1$63004s%1$65520s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 65520,
+        "terms": []
+      },
+      "successors": [
+        2532
+      ],
+      "next": 2532
+    },
+    {
+      "offset": 2532,
+      "phase": "labirinto",
+      "raw": "%1$02569s%3$hn%1$62967s%1$*5$s%17$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r4",
+        "constant": 0,
+        "terms": [
+          "load16(memory, dptr)"
+        ]
+      },
+      "successors": [
+        2569
+      ],
+      "next": 2569
+    },
+    {
+      "offset": 2569,
+      "phase": "labirinto",
+      "raw": "%16$c%1$00822s%2$c%4$s%1$01782s%3$hn",
+      "op": "JNZ8",
+      "condition": "r4",
+      "zero": 2606,
+      "nonzero": 3429,
+      "successors": [
+        2606,
+        3429
+      ]
+    },
+    {
+      "offset": 2606,
+      "phase": "labirinto",
+      "raw": "%1$02652s%3$hn%1$62884s%1$61440s%1$*12$s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 61440,
+        "terms": [
+          "r2"
+        ]
+      },
+      "successors": [
+        2652
+      ],
+      "next": 2652
+    },
+    {
+      "offset": 2652,
+      "phase": "labirinto",
+      "raw": "%1$02689s%3$hn%1$62847s%1$*5$s%17$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r4",
+        "constant": 0,
+        "terms": [
+          "load16(memory, dptr)"
+        ]
+      },
+      "successors": [
+        2689
+      ],
+      "next": 2689
+    },
+    {
+      "offset": 2689,
+      "phase": "labirinto",
+      "raw": "%1$02727s%3$hn%1$62809s%1$65519s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 65519,
+        "terms": []
+      },
+      "successors": [
+        2727
+      ],
+      "next": 2727
+    },
+    {
+      "offset": 2727,
+      "phase": "labirinto",
+      "raw": "%1$02764s%3$hn%1$62772s%1$*16$s%6$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "store16(memory, dptr)",
+        "constant": 0,
+        "terms": [
+          "r4"
+        ]
+      },
+      "successors": [
+        2764
+      ],
+      "next": 2764
+    },
+    {
+      "offset": 2764,
+      "phase": "labirinto",
+      "raw": "%1$02802s%3$hn%1$62734s%1$65520s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 65520,
+        "terms": []
+      },
+      "successors": [
+        2802
+      ],
+      "next": 2802
+    },
+    {
+      "offset": 2802,
+      "phase": "labirinto",
+      "raw": "%1$02836s%3$hn%1$62700s%1$0s%6$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "store16(memory, dptr)",
+        "constant": 0,
+        "terms": []
+      },
+      "successors": [
+        2836
+      ],
+      "next": 2836
+    },
+    {
+      "offset": 2836,
+      "phase": "labirinto",
+      "raw": "%1$02874s%3$hn%1$62662s%1$65519s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 65519,
+        "terms": []
+      },
+      "successors": [
+        2874
+      ],
+      "next": 2874
+    },
+    {
+      "offset": 2874,
+      "phase": "labirinto",
+      "raw": "%1$02911s%3$hn%1$62625s%1$*5$s%17$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r4",
+        "constant": 0,
+        "terms": [
+          "load16(memory, dptr)"
+        ]
+      },
+      "successors": [
+        2911
+      ],
+      "next": 2911
+    },
+    {
+      "offset": 2911,
+      "phase": "labirinto",
+      "raw": "%1$02957s%3$hn%1$62579s%1$*16$s%1$*16$s%17$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r4",
+        "constant": 0,
+        "terms": [
+          "r4",
+          "r4"
+        ]
+      },
+      "successors": [
+        2957
+      ],
+      "next": 2957
+    },
+    {
+      "offset": 2957,
+      "phase": "labirinto",
+      "raw": "%1$03003s%3$hn%1$62533s%1$28672s%1$*16$s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 28672,
+        "terms": [
+          "r4"
+        ]
+      },
+      "successors": [
+        3003
+      ],
+      "next": 3003
+    },
+    {
+      "offset": 3003,
+      "phase": "labirinto",
+      "raw": "%1$03040s%3$hn%1$62496s%1$*5$s%17$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r4",
+        "constant": 0,
+        "terms": [
+          "load16(memory, dptr)"
+        ]
+      },
+      "successors": [
+        3040
+      ],
+      "next": 3040
+    },
+    {
+      "offset": 3040,
+      "phase": "labirinto",
+      "raw": "%16$c%1$00266s%2$c%4$s%1$02809s%3$hn",
+      "op": "JNZ8",
+      "condition": "r4",
+      "zero": 3077,
+      "nonzero": 3344,
+      "successors": [
+        3077,
+        3344
+      ]
+    },
+    {
+      "offset": 3077,
+      "phase": "labirinto",
+      "raw": "%1$03120s%3$hn%1$62416s%1$*10$s%1$1s%17$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r4",
+        "constant": 1,
+        "terms": [
+          "r1"
+        ]
+      },
+      "successors": [
+        3120
+      ],
+      "next": 3120
+    },
+    {
+      "offset": 3120,
+      "phase": "labirinto",
+      "raw": "%1$03166s%3$hn%1$62370s%1$61698s%1$*16$s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 61698,
+        "terms": [
+          "r4"
+        ]
+      },
+      "successors": [
+        3166
+      ],
+      "next": 3166
+    },
+    {
+      "offset": 3166,
+      "phase": "labirinto",
+      "raw": "%1$03203s%3$hn%1$62333s%1$*5$s%17$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r4",
+        "constant": 0,
+        "terms": [
+          "load16(memory, dptr)"
+        ]
+      },
+      "successors": [
+        3203
+      ],
+      "next": 3203
+    },
+    {
+      "offset": 3203,
+      "phase": "labirinto",
+      "raw": "%1$03249s%3$hn%1$62287s%1$*16$s%1$*12$s%17$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r4",
+        "constant": 0,
+        "terms": [
+          "r4",
+          "r2"
+        ]
+      },
+      "successors": [
+        3249
+      ],
+      "next": 3249
+    },
+    {
+      "offset": 3249,
+      "phase": "labirinto",
+      "raw": "%16$c%1$00042s%2$c%4$s%1$03242s%3$hn",
+      "op": "JNZ8",
+      "condition": "r4",
+      "zero": 3286,
+      "nonzero": 3329,
+      "successors": [
+        3286,
+        3329
+      ]
+    },
+    {
+      "offset": 3286,
+      "phase": "labirinto",
+      "raw": "%1$03329s%3$hn%1$62207s%1$*10$s%1$1s%11$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r1",
+        "constant": 1,
+        "terms": [
+          "r1"
+        ]
+      },
+      "successors": [
+        3329
+      ],
+      "next": 3329
+    },
+    {
+      "offset": 3329,
+      "phase": "labirinto",
+      "raw": "%1$01548s%3$hn",
+      "op": "JMP",
+      "successors": [
+        1548
+      ],
+      "next": 1548
+    },
+    {
+      "offset": 3344,
+      "phase": "labirinto",
+      "raw": "%1$03379s%3$hn%1$62157s%1$0s%15$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r3",
+        "constant": 0,
+        "terms": []
+      },
+      "successors": [
+        3379
+      ],
+      "next": 3379
+    },
+    {
+      "offset": 3379,
+      "phase": "labirinto",
+      "raw": "%1$03414s%3$hn%1$62122s%1$2s%23$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r7",
+        "constant": 2,
+        "terms": []
+      },
+      "successors": [
+        3414
+      ],
+      "next": 3414
+    },
+    {
+      "offset": 3414,
+      "phase": "labirinto",
+      "raw": "%1$01548s%3$hn",
+      "op": "JMP",
+      "successors": [
+        1548
+      ],
+      "next": 1548
+    },
+    {
+      "offset": 3429,
+      "phase": "labirinto",
+      "raw": "%1$03464s%3$hn%1$62072s%1$4s%23$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r7",
+        "constant": 4,
+        "terms": []
+      },
+      "successors": [
+        3464
+      ],
+      "next": 3464
+    },
+    {
+      "offset": 3464,
+      "phase": "labirinto",
+      "raw": "%1$65534s%3$hn",
+      "op": "HALT",
+      "successors": [
+        65534
+      ],
+      "next": 65534
+    },
+    {
+      "offset": 3479,
+      "phase": "labirinto",
+      "raw": "%14$c%1$00014s%2$c%4$s%1$03500s%3$hn",
+      "op": "JNZ8",
+      "condition": "r3",
+      "zero": 3516,
+      "nonzero": 3531,
+      "successors": [
+        3516,
+        3531
+      ]
+    },
+    {
+      "offset": 3516,
+      "phase": "labirinto",
+      "raw": "%1$05081s%3$hn",
+      "op": "JMP",
+      "successors": [
+        5081
+      ],
+      "next": 5081
+    },
+    {
+      "offset": 3531,
+      "phase": "labirinto",
+      "raw": "%1$03578s%3$hn%1$61958s%1$*10$s%1$65527s%17$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r4",
+        "constant": 65527,
+        "terms": [
+          "r1"
+        ]
+      },
+      "successors": [
+        3578
+      ],
+      "next": 3578
+    },
+    {
+      "offset": 3578,
+      "phase": "labirinto",
+      "raw": "%16$c%1$00014s%2$c%4$s%1$03599s%3$hn",
+      "op": "JNZ8",
+      "condition": "r4",
+      "zero": 3615,
+      "nonzero": 3630,
+      "successors": [
+        3615,
+        3630
+      ]
+    },
+    {
+      "offset": 3615,
+      "phase": "labirinto",
+      "raw": "%1$03680s%3$hn",
+      "op": "JMP",
+      "successors": [
+        3680
+      ],
+      "next": 3680
+    },
+    {
+      "offset": 3630,
+      "phase": "labirinto",
+      "raw": "%1$03665s%3$hn%1$61871s%1$3s%23$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r7",
+        "constant": 3,
+        "terms": []
+      },
+      "successors": [
+        3665
+      ],
+      "next": 3665
+    },
+    {
+      "offset": 3665,
+      "phase": "labirinto",
+      "raw": "%1$05081s%3$hn",
+      "op": "JMP",
+      "successors": [
+        5081
+      ],
+      "next": 5081
+    },
+    {
+      "offset": 3680,
+      "phase": "decifracao",
+      "raw": "%1$03714s%3$hn%1$61822s%1$0s%9$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r0",
+        "constant": 0,
+        "terms": []
+      },
+      "successors": [
+        3714
+      ],
+      "next": 3714
+    },
+    {
+      "offset": 3714,
+      "phase": "decifracao",
+      "raw": "%1$03749s%3$hn%1$61787s%1$0s%11$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r1",
+        "constant": 0,
+        "terms": []
+      },
+      "successors": [
+        3749
+      ],
+      "next": 3749
+    },
+    {
+      "offset": 3749,
+      "phase": "decifracao",
+      "raw": "%1$03795s%3$hn%1$61741s%1$*8$s%1$65497s%13$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r2",
+        "constant": 65497,
+        "terms": [
+          "r0"
+        ]
+      },
+      "successors": [
+        3795
+      ],
+      "next": 3795
+    },
+    {
+      "offset": 3795,
+      "phase": "decifracao",
+      "raw": "%12$c%1$00014s%2$c%4$s%1$03816s%3$hn",
+      "op": "JNZ8",
+      "condition": "r2",
+      "zero": 3832,
+      "nonzero": 3847,
+      "successors": [
+        3832,
+        3847
+      ]
+    },
+    {
+      "offset": 3832,
+      "phase": "decifracao",
+      "raw": "%1$04987s%3$hn",
+      "op": "JMP",
+      "successors": [
+        4987
+      ],
+      "next": 4987
+    },
+    {
+      "offset": 3847,
+      "phase": "decifracao",
+      "raw": "%1$03882s%3$hn%1$61654s%1$4s%15$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r3",
+        "constant": 4,
+        "terms": []
+      },
+      "successors": [
+        3882
+      ],
+      "next": 3882
+    },
+    {
+      "offset": 3882,
+      "phase": "decifracao",
+      "raw": "%1$03917s%3$hn%1$61619s%1$0s%13$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r2",
+        "constant": 0,
+        "terms": []
+      },
+      "successors": [
+        3917
+      ],
+      "next": 3917
+    },
+    {
+      "offset": 3917,
+      "phase": "decifracao",
+      "raw": "%1$03963s%3$hn%1$61573s%1$*12$s%1$*12$s%13$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r2",
+        "constant": 0,
+        "terms": [
+          "r2",
+          "r2"
+        ]
+      },
+      "successors": [
+        3963
+      ],
+      "next": 3963
+    },
+    {
+      "offset": 3963,
+      "phase": "decifracao",
+      "raw": "%1$04009s%3$hn%1$61527s%1$*12$s%1$*12$s%13$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r2",
+        "constant": 0,
+        "terms": [
+          "r2",
+          "r2"
+        ]
+      },
+      "successors": [
+        4009
+      ],
+      "next": 4009
+    },
+    {
+      "offset": 4009,
+      "phase": "decifracao",
+      "raw": "%1$04055s%3$hn%1$61481s%1$57344s%1$*10$s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 57344,
+        "terms": [
+          "r1"
+        ]
+      },
+      "successors": [
+        4055
+      ],
+      "next": 4055
+    },
+    {
+      "offset": 4055,
+      "phase": "decifracao",
+      "raw": "%1$04092s%3$hn%1$61444s%1$*5$s%17$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r4",
+        "constant": 0,
+        "terms": [
+          "load16(memory, dptr)"
+        ]
+      },
+      "successors": [
+        4092
+      ],
+      "next": 4092
+    },
+    {
+      "offset": 4092,
+      "phase": "decifracao",
+      "raw": "%1$04139s%3$hn%1$61397s%1$*16$s%1$65419s%19$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r5",
+        "constant": 65419,
+        "terms": [
+          "r4"
+        ]
+      },
+      "successors": [
+        4139
+      ],
+      "next": 4139
+    },
+    {
+      "offset": 4139,
+      "phase": "decifracao",
+      "raw": "%18$c%1$00014s%2$c%4$s%1$04160s%3$hn",
+      "op": "JNZ8",
+      "condition": "r5",
+      "zero": 4176,
+      "nonzero": 4191,
+      "successors": [
+        4176,
+        4191
+      ]
+    },
+    {
+      "offset": 4176,
+      "phase": "decifracao",
+      "raw": "%1$04632s%3$hn",
+      "op": "JMP",
+      "successors": [
+        4632
+      ],
+      "next": 4632
+    },
+    {
+      "offset": 4191,
+      "phase": "decifracao",
+      "raw": "%1$04238s%3$hn%1$61298s%1$*16$s%1$65422s%19$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r5",
+        "constant": 65422,
+        "terms": [
+          "r4"
+        ]
+      },
+      "successors": [
+        4238
+      ],
+      "next": 4238
+    },
+    {
+      "offset": 4238,
+      "phase": "decifracao",
+      "raw": "%18$c%1$00057s%2$c%4$s%1$04216s%3$hn",
+      "op": "JNZ8",
+      "condition": "r5",
+      "zero": 4275,
+      "nonzero": 4333,
+      "successors": [
+        4275,
+        4333
+      ]
+    },
+    {
+      "offset": 4275,
+      "phase": "decifracao",
+      "raw": "%1$04318s%3$hn%1$61218s%1$*12$s%1$1s%13$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r2",
+        "constant": 1,
+        "terms": [
+          "r2"
+        ]
+      },
+      "successors": [
+        4318
+      ],
+      "next": 4318
+    },
+    {
+      "offset": 4318,
+      "phase": "decifracao",
+      "raw": "%1$04632s%3$hn",
+      "op": "JMP",
+      "successors": [
+        4632
+      ],
+      "next": 4632
+    },
+    {
+      "offset": 4333,
+      "phase": "decifracao",
+      "raw": "%1$04380s%3$hn%1$61156s%1$*16$s%1$65436s%19$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r5",
+        "constant": 65436,
+        "terms": [
+          "r4"
+        ]
+      },
+      "successors": [
+        4380
+      ],
+      "next": 4380
+    },
+    {
+      "offset": 4380,
+      "phase": "decifracao",
+      "raw": "%18$c%1$00057s%2$c%4$s%1$04358s%3$hn",
+      "op": "JNZ8",
+      "condition": "r5",
+      "zero": 4417,
+      "nonzero": 4475,
+      "successors": [
+        4417,
+        4475
+      ]
+    },
+    {
+      "offset": 4417,
+      "phase": "decifracao",
+      "raw": "%1$04460s%3$hn%1$61076s%1$*12$s%1$2s%13$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r2",
+        "constant": 2,
+        "terms": [
+          "r2"
+        ]
+      },
+      "successors": [
+        4460
+      ],
+      "next": 4460
+    },
+    {
+      "offset": 4460,
+      "phase": "decifracao",
+      "raw": "%1$04632s%3$hn",
+      "op": "JMP",
+      "successors": [
+        4632
+      ],
+      "next": 4632
+    },
+    {
+      "offset": 4475,
+      "phase": "decifracao",
+      "raw": "%1$04522s%3$hn%1$61014s%1$*16$s%1$65428s%19$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r5",
+        "constant": 65428,
+        "terms": [
+          "r4"
+        ]
+      },
+      "successors": [
+        4522
+      ],
+      "next": 4522
+    },
+    {
+      "offset": 4522,
+      "phase": "decifracao",
+      "raw": "%18$c%1$00057s%2$c%4$s%1$04500s%3$hn",
+      "op": "JNZ8",
+      "condition": "r5",
+      "zero": 4559,
+      "nonzero": 4617,
+      "successors": [
+        4559,
+        4617
+      ]
+    },
+    {
+      "offset": 4559,
+      "phase": "decifracao",
+      "raw": "%1$04602s%3$hn%1$60934s%1$*12$s%1$3s%13$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r2",
+        "constant": 3,
+        "terms": [
+          "r2"
+        ]
+      },
+      "successors": [
+        4602
+      ],
+      "next": 4602
+    },
+    {
+      "offset": 4602,
+      "phase": "decifracao",
+      "raw": "%1$04632s%3$hn",
+      "op": "JMP",
+      "successors": [
+        4632
+      ],
+      "next": 4632
+    },
+    {
+      "offset": 4617,
+      "phase": "decifracao",
+      "raw": "%1$05081s%3$hn",
+      "op": "JMP",
+      "successors": [
+        5081
+      ],
+      "next": 5081
+    },
+    {
+      "offset": 4632,
+      "phase": "decifracao",
+      "raw": "%1$04675s%3$hn%1$60861s%1$*10$s%1$1s%11$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r1",
+        "constant": 1,
+        "terms": [
+          "r1"
+        ]
+      },
+      "successors": [
+        4675
+      ],
+      "next": 4675
+    },
+    {
+      "offset": 4675,
+      "phase": "decifracao",
+      "raw": "%1$04722s%3$hn%1$60814s%1$*14$s%1$65535s%15$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r3",
+        "constant": 65535,
+        "terms": [
+          "r3"
+        ]
+      },
+      "successors": [
+        4722
+      ],
+      "next": 4722
+    },
+    {
+      "offset": 4722,
+      "phase": "decifracao",
+      "raw": "%14$c%1$64693s%2$c%4$s%1$05600s%3$hn",
+      "op": "JNZ8",
+      "condition": "r3",
+      "zero": 4759,
+      "nonzero": 3917,
+      "successors": [
+        4759,
+        3917
+      ]
+    },
+    {
+      "offset": 4759,
+      "phase": "decifracao",
+      "raw": "%1$04804s%3$hn%1$60732s%1$61708s%1$*8$s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 61708,
+        "terms": [
+          "r0"
+        ]
+      },
+      "successors": [
+        4804
+      ],
+      "next": 4804
+    },
+    {
+      "offset": 4804,
+      "phase": "decifracao",
+      "raw": "%1$04841s%3$hn%1$60695s%1$*5$s%15$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r3",
+        "constant": 0,
+        "terms": [
+          "load16(memory, dptr)"
+        ]
+      },
+      "successors": [
+        4841
+      ],
+      "next": 4841
+    },
+    {
+      "offset": 4841,
+      "phase": "decifracao",
+      "raw": "%1$04886s%3$hn%1$60650s%1$59392s%1$*8$s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 59392,
+        "terms": [
+          "r0"
+        ]
+      },
+      "successors": [
+        4886
+      ],
+      "next": 4886
+    },
+    {
+      "offset": 4886,
+      "phase": "decifracao",
+      "raw": "%1$04931s%3$hn%1$60605s%1$*14$s%1$*12$s%6$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "store16(memory, dptr)",
+        "constant": 0,
+        "terms": [
+          "r3",
+          "r2"
+        ]
+      },
+      "successors": [
+        4931
+      ],
+      "next": 4931
+    },
+    {
+      "offset": 4931,
+      "phase": "decifracao",
+      "raw": "%1$04972s%3$hn%1$60564s%1$*8$s%1$1s%9$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "r0",
+        "constant": 1,
+        "terms": [
+          "r0"
+        ]
+      },
+      "successors": [
+        4972
+      ],
+      "next": 4972
+    },
+    {
+      "offset": 4972,
+      "phase": "decifracao",
+      "raw": "%1$03749s%3$hn",
+      "op": "JMP",
+      "successors": [
+        3749
+      ],
+      "next": 3749
+    },
+    {
+      "offset": 4987,
+      "phase": "decifracao",
+      "raw": "%1$05032s%3$hn%1$60504s%1$59392s%1$*8$s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 59392,
+        "terms": [
+          "r0"
+        ]
+      },
+      "successors": [
+        5032
+      ],
+      "next": 5032
+    },
+    {
+      "offset": 5032,
+      "phase": "decifracao",
+      "raw": "%1$05066s%3$hn%1$60470s%1$0s%6$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "store16(memory, dptr)",
+        "constant": 0,
+        "terms": []
+      },
+      "successors": [
+        5066
+      ],
+      "next": 5066
+    },
+    {
+      "offset": 5066,
+      "phase": "decifracao",
+      "raw": "%1$65534s%3$hn",
+      "op": "HALT",
+      "successors": [
+        65534
+      ],
+      "next": 65534
+    },
+    {
+      "offset": 5081,
+      "phase": "falha",
+      "raw": "%1$05119s%3$hn%1$60417s%1$59392s%7$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "dptr",
+        "constant": 59392,
+        "terms": []
+      },
+      "successors": [
+        5119
+      ],
+      "next": 5119
+    },
+    {
+      "offset": 5119,
+      "phase": "falha",
+      "raw": "%1$05153s%3$hn%1$60383s%1$0s%6$hn",
+      "op": "ASSIGN",
+      "assignment": {
+        "destination": "store16(memory, dptr)",
+        "constant": 0,
+        "terms": []
+      },
+      "successors": [
+        5153
+      ],
+      "next": 5153
+    },
+    {
+      "offset": 5153,
+      "phase": "falha",
+      "raw": "%1$65534s%3$hn",
+      "op": "HALT",
+      "successors": [
+        65534
+      ],
+      "next": 65534
+    }
+  ]
+}

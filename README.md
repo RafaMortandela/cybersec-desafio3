@@ -29,6 +29,26 @@ sha256sum -c sprint.sha256
 
 Não há dependências externas (Python 3, biblioteca padrão apenas).
 
+## Lifting e programa estruturado (etapa P2 — Antonio)
+
+O P2 consome o JSON do P1, confere as strings com o ELF e recupera os acessos
+indiretos, os registradores `r0..r7` e os dois destinos de cada desvio de baixo
+byte. A organização em laços é um modelo manual auditado para o hash do Sprint
+original. São **146 instruções reais**; os dois registros P1 em `0xf000` e
+`0xf102` são dados. O mapa genérico de nomes do P1 não deve ser usado como mapa
+concreto de registradores; o P2 recupera a semântica pelo campo `raw`.
+
+```bash
+python3 src/lift.py out/sprint.json --binary sprint --out-dir out
+python3 out/p2_program.py --input out/maze_path.txt --json
+python3 -m unittest discover -s tests -v
+```
+
+Saídas: `out/p2_ir.json`, `out/p2_pseudocode.txt` e `out/p2_program.py`. O Python
+gerado explica e executa o crivo, a validação de comprimento e de percurso e a
+decifração sem `sprintf`; funciona também no macOS com Python 3.9+. Os testes
+P2 comparam o modelo com uma referência de IR, sem executar o ELF original.
+
 ## Solver do labirinto (etapa P4)
 
 ```bash
@@ -59,4 +79,6 @@ Neste checkout, `sprint` não tem o bit de execução; a chamada pela loader aci
 | Slides e teoria | P7–P9 | semântica de format strings, Turing-completude, roteiro/demo |
 | Write-up e repositório | P10–P11 | documento técnico, README e referências |
 
-Este repositório contém as entregas **P1** (Rafaela) e **P4** (Cauã) : ver `docs/writeup/01-p1-extracao-disassembly.md` e `docs/writeup/04-p4-solver.md`.
+Este repositório contém as entregas **P1** (Rafaela), **P2** (Antonio) e **P4** (Cauã):
+ver `docs/writeup/01-p1-extracao-disassembly.md`, `src/lift.py`,
+`out/p2_pseudocode.txt`, `out/p2_program.py` e `docs/writeup/04-p4-solver.md`.
