@@ -1,0 +1,14 @@
+# Contexto de build do Dockerfile da P6.
+# Mantem a imagem minima e aplica a regra do grupo: o gerador oficial contem a
+# flag e jamais entra na imagem nem no contexto enviado ao daemon.
+**/gen_data.py
+gen_data.py
+other/
+__pycache__/
+*.pyc
+out/
+docs/
+tests/
+.git/
+.gitignore
+.dockerignore

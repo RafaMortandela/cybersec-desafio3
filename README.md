@@ -10,6 +10,7 @@ src/                 extrator/disassembler (P1), lifting (P2), emulador (P3) e s
 out/                 disassembly, rota e mapa ASCII gerados
 docs/writeup/        write-up por etapa
 docs/referencias.md  todas as fontes citadas
+docker/              Dockerfiles e matriz de ambientes (P6)
 ```
 
 > **Não versionar** `gen_data.py` do repositório oficial: ele contém a flag e gera a senha. A entrega inclui apenas o binário.
@@ -70,6 +71,22 @@ Neste checkout, `sprint` não tem o bit de execução; a chamada pela loader aci
 - glibc de referência: 2.39 (registrar sempre a versão usada — ver write-up).
 - Motivo: `%4$s` lê o próprio buffer de saída de `sprintf` (comportamento indefinido, determinístico na glibc alvo).
 
+## Matriz de ambiente (etapa P6)
+
+```bash
+python3 docker/matrix.py                 # constrói e roda a matriz inteira
+python3 docker/matrix.py --report-only   # só resume relatórios existentes
+```
+
+Usa `docker/Dockerfile` (base fixada por digest) e `docker/Dockerfile.nix`
+(Nixpkgs fixado). O binário é copiado para a imagem com o hash conferido no
+build, sem bind mount. As mesmas 71 entradas de P5 passam em **glibc 2.31, 2.35,
+2.36, 2.39, 2.40 e 2.44** (e no host glibc 2.43); sob **musl** (Alpine) o ELF não
+inicia, pois exige `/lib64/ld-linux-x86-64.so.2`. Resultado consolidado em
+[out/p6/matriz.tsv](out/p6/matriz.tsv) e detalhes no
+[write-up P6](docs/writeup/06-p6-ambiente-glibc.md). `gen_data.py` fica fora da
+entrega e é barrado no contexto de build pelo `.dockerignore`.
+
 ## Divisão do trabalho (11 pessoas)
 
 | Frente | Pessoas | Entrega |
@@ -103,7 +120,7 @@ python3 -m unittest discover -s tests -v
 Executa a ISA diretamente das strings extraídas do ELF, sem sprintf, P2 ou solver.
 Oferece memória, registradores, execução passo a passo, trace JSONL e limite de
 instruções. A rota válida termina após 19.234 instruções e recupera a flag.
-A suíte completa passou em 18 testes; P3 compara 62 entradas com P2 e com stdout
+A suíte completa passou em 23 testes; P3 compara 62 entradas com P2 e com stdout
 do ELF original em glibc 2.39. O teste nativo é ignorado em outras plataformas.
 Consulte [write-up P3](docs/writeup/03-p3-emulador.md) e
 [revisão de coesão](docs/revisao-coesao.md).
