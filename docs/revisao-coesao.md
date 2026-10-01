@@ -16,4 +16,6 @@ A referência de escopo é a reunião de 30 de setembro: P3 é um emulador próp
 
 “Implementamos um emulador que executa as instruções extraídas sem usar sprintf. Ele mantém memória, oito registradores e o contador de programa, reproduzindo escritas de 16 bits e desvios pelo byte baixo. A rota do solver executou 19.234 instruções e recuperou a mesma flag. Comparamos 62 entradas com o modelo estruturado e com a saída do binário original na glibc 2.39.”
 
-O PDF dos slides e o DOCX das notas foram preservados. Esta revisão e o write-up P3 fornecem os ajustes a incorporar. P5 e P6 ainda precisam concluir suas entregas próprias, especialmente a matriz de glibc e eventual comparação de estados internos.
+O PDF dos slides e o DOCX das notas foram preservados na revisão original. Esta revisão e o write-up P3 fornecem os ajustes a incorporar.
+
+Atualização de 1 de outubro de 2026: P5 e P6 já estão no repositório, com `src/validate.py`, testes, Dockerfiles e relatórios da matriz de glibc em `out/p6/`. P5 compara status, aceitação e flag entre P3/P2; a comparação com o ELF é por stdout, sem instrumentação de estados internos. O documento técnico consolidado P10 permanece em andamento no README.

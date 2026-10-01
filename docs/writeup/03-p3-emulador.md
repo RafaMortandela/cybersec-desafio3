@@ -55,7 +55,7 @@ A rota do P4 foi aceita após 19.234 instruções, com PC final `0xfffe`, status
 
 Os testes P3 verificam truncamento de 16 bits, words desalinhados e no último endereço, argumentos capturados antes das escritas, desvio por byte baixo, formato desconhecido, limite de execução e trace. Outras 62 entradas foram comparadas com P2 quanto a status, aceitação e flag. Incluem rota correta, comprimentos incorretos, todos os status de rejeição de 1 a 5, NUL, whitespace, byte não ASCII, mutações da rota e sequências aleatórias com semente fixa.
 
-As mesmas 62 entradas foram executadas no ELF original pela loader glibc e produziram stdout idêntico ao esperado pela P3, sem stderr e com término normal. Esse teste é ignorado automaticamente fora de Linux x86-64 com a loader esperada. A comparação com o ELF cobre a saída, não o estado interno por instrução. A matriz de versões de glibc e a instrumentação de estados do binário continuam sendo entregas de P5 e P6.
+As mesmas 62 entradas foram executadas no ELF original pela loader glibc e produziram stdout idêntico ao esperado pela P3, sem stderr e com término normal. Esse teste é ignorado automaticamente fora de Linux x86-64 com a loader esperada. A comparação com o ELF cobre a saída, não o estado interno por instrução. A validação P5 posteriormente ampliou o conjunto para 71 entradas, e a matriz de versões de glibc está documentada no [write-up P6](06-p6-ambiente-glibc.md). A instrumentação de estados internos do ELF não está implementada.
 
 ## Integração e limites
 

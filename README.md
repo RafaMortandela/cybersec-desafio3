@@ -23,9 +23,9 @@ sprint                  binário original do desafio
 sprint.sha256           hash SHA-256 do binário
 src/                    extrator/disassembler (P1), lifting (P2), emulador (P3),
                         solver do labirinto (P4) e validação (P5)
-tests/                  testes automatizados (P2, P3, P4, P5)
+tests/                  testes automatizados (P2, P3, P4, P5, P6)
 out/                    artefatos gerados: disassembly, IR, pseudocódigo,
-                        rota e mapa do labirinto
+                        rota e mapa do labirinto, resultados de P3 e matriz P6
 docker/                 Dockerfiles e matriz de ambientes (P6)
 docs/writeup/           write-up por etapa
 docs/referencias.md     todas as fontes citadas
@@ -33,20 +33,21 @@ docs/revisao-coesao.md  revisão de coerência entre notas, código e write-ups
 LICENSE                 licença do repositório
 ```
 
-> **Não versionar** `gen_data.py` do repositório oficial: ele contém a flag e gera a senha. A solução não depende dele, e a entrega inclui apenas o binário.
+> **Não versionar** `gen_data.py` do repositório oficial: ele contém a flag e gera a senha. A solução não depende dele; dos arquivos do desafio oficial, a entrega inclui apenas o binário.
 
 ## Pré-requisitos e ambiente
 
 - **Python 3.9+**, sem dependências externas (apenas biblioteca padrão).
-- **Linux x86-64 com glibc** para executar o binário original. Em outros sistemas, use o emulador (P3), que não precisa do ELF: ver `--emulator-only` na etapa P5.
+- **Linux x86-64 com glibc** para executar o binário original. Em outros sistemas, use o emulador (P3) e a validação `--emulator-only` da etapa P5: ambos leem o arquivo `sprint` para extrair os dados, mas não executam o ELF.
+- **Docker ativo com suporte a `linux/amd64`** para executar o ELF em macOS/Windows ou reproduzir a matriz P6. Os scripts Python rodam na máquina local; o ELF roda no container.
 - Binário: ELF x86-64 PIE, não *stripped*.
-- glibc de referência: **2.39**. Registre sempre a versão usada ao reproduzir (`getconf GNU_LIBC_VERSION`). A auditoria recebida também relata sucesso com a glibc 2.44.
+- glibc de referência: **2.39**. Registre sempre a versão usada no ambiente que executa o ELF (`getconf GNU_LIBC_VERSION`). Os relatórios versionados de P6 incluem sucesso com a glibc 2.44.
 - Por que a glibc importa: `%4$s` lê o próprio buffer de saída do `sprintf`, comportamento indefinido que é determinístico na glibc alvo.
 - Docker e matriz de versões de glibc: ver [Ambiente Docker (P6)](#ambiente-docker-e-matriz-de-glibc-p6).
 
 ## Reprodução passo a passo
 
-Os artefatos de `out/` já estão versionados, então cada etapa pode ser executada de forma independente. Para refazer tudo do zero, rode na ordem **P1 → P4 → P2 → P3 → P5**, pois a rota gerada pelo P4 é a entrada das demais etapas.
+Execute os comandos na raiz do repositório. Os artefatos de `out/` já estão versionados, permitindo executar cada etapa com suas entradas prontas. Para regenerar os artefatos, rode na ordem **P1 → P4 → P2 → P3 → P5**: P2 usa o JSON de P1, e os exemplos de P2/P3 usam a rota de P4. P5 regenera a rota internamente e compara P3 com o programa P2 gerado.
 
 ```bash
 # 0. conferir a integridade do binário
@@ -66,14 +67,16 @@ python3 out/p2_program.py --input out/maze_path.txt --json
 # P3: emulador próprio (sem sprintf)
 python3 src/emulate.py --input out/maze_path.txt --json
 
-# P5: validação ponta a ponta + teste diferencial ELF x P3 x P2
+# P5: em Linux x86-64 com glibc, validação ELF x P3 x P2
 python3 src/validate.py
 
 # todos os testes automatizados
 python3 -m unittest discover -s tests -v
 ```
 
-**Conferir a flag no binário original.** Neste checkout o arquivo `sprint` não tem o bit de execução. A chamada pelo loader executa os mesmos bytes sem alterar o arquivo:
+No macOS, confira o hash com `shasum -a 256 -c sprint.sha256` no lugar de `sha256sum`. Para P5 sem execução do ELF, use `python3 src/validate.py --emulator-only`; para validar o ELF em Docker, use os comandos da seção [P5](#p5--validação).
+
+**Conferir a flag no binário original em Linux x86-64 com glibc.** Neste checkout o arquivo `sprint` não tem o bit de execução. A chamada pelo loader executa os mesmos bytes sem alterar o arquivo:
 
 ```bash
 /lib64/ld-linux-x86-64.so.2 ./sprint < out/maze_path.txt
@@ -124,8 +127,14 @@ Script ponta a ponta: executa o binário original com a entrada gerada pelo P4 e
 
 ```bash
 python3 src/validate.py                  # E2E com o ELF + diferencial ELF x P3 x P2
-python3 src/validate.py --emulator-only  # sem o ELF (ex.: Windows sem Docker)
+python3 src/validate.py --emulator-only  # compara P3 x P2 sem executar o ELF
+
+# E2E em Docker (ex.: macOS ou Windows, com Docker ativo)
+docker build --platform linux/amd64 -t sprint-p6:ref-2.39 -f docker/Dockerfile .
+python3 src/validate.py --backend docker --image sprint-p6:ref-2.39 --image-binary /sprint
 ```
+
+`--emulator-only` é uma validação parcial: não confirma o comportamento da libc nem a saída do ELF original. A suíte `unittest` também ignora o teste diferencial nativo com o ELF fora de Linux x86-64 com o loader esperado; o comando Docker acima faz essa validação separadamente.
 
 ### Ambiente Docker e matriz de glibc (P6)
 
@@ -134,7 +143,7 @@ python3 docker/matrix.py                 # constrói e roda a matriz inteira
 python3 docker/matrix.py --report-only   # só resume relatórios existentes
 ```
 
-Usa `docker/Dockerfile` (base fixada por digest) e `docker/Dockerfile.nix` (Nixpkgs fixado). O binário é copiado para a imagem com o hash conferido no build, sem bind mount. As mesmas 71 entradas de P5 passam em **glibc 2.31, 2.35, 2.36, 2.39, 2.40 e 2.44** (e no host glibc 2.43); sob **musl** (Alpine) o ELF não inicia, pois exige `/lib64/ld-linux-x86-64.so.2`. Resultado consolidado em [out/p6/matriz.tsv](out/p6/matriz.tsv) e detalhes no [write-up P6](docs/writeup/06-p6-ambiente-glibc.md). `gen_data.py` fica fora da entrega e é barrado no contexto de build pelo `.dockerignore`.
+Usa `docker/Dockerfile` (base fixada por digest) e `docker/Dockerfile.nix` (Nixpkgs fixado). O binário é copiado para a imagem com o hash conferido no build, sem bind mount. Os relatórios versionados registram concordância das 71 entradas de P5 em **glibc 2.31, 2.35, 2.36, 2.39, 2.40 e 2.44**; o write-up também relata sucesso no host glibc 2.43. Sob **musl** (Alpine), o ELF não inicia porque seu loader `/lib64/ld-linux-x86-64.so.2` está ausente; a matriz registra essa falha como esperada. Resultado consolidado em [out/p6/matriz.tsv](out/p6/matriz.tsv) e detalhes no [write-up P6](docs/writeup/06-p6-ambiente-glibc.md). `gen_data.py` fica fora da entrega e é barrado no contexto de build pelo `.dockerignore`.
 
 ### Write-up técnico (P10) — em andamento
 
@@ -153,4 +162,4 @@ Grupo de 11 pessoas.
 
 ## Licença
 
-Ver [LICENSE](LICENSE). O desafio original pertence ao Google CTF 2020; este repositório contém apenas material de análise e reprodução desenvolvido pelo grupo.
+Ver [LICENSE](LICENSE). O desafio original pertence ao Google CTF 2020; este repositório contém o binário original e material de análise e reprodução desenvolvido pelo grupo.
