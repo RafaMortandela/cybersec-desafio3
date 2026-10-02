@@ -145,9 +145,13 @@ python3 docker/matrix.py --report-only   # só resume relatórios existentes
 
 Usa `docker/Dockerfile` (base fixada por digest) e `docker/Dockerfile.nix` (Nixpkgs fixado). O binário é copiado para a imagem com o hash conferido no build, sem bind mount. Os relatórios versionados registram concordância das 71 entradas de P5 em **glibc 2.31, 2.35, 2.36, 2.39, 2.40 e 2.44**; o write-up também relata sucesso no host glibc 2.43. Sob **musl** (Alpine), o ELF não inicia porque seu loader `/lib64/ld-linux-x86-64.so.2` está ausente; a matriz registra essa falha como esperada. Resultado consolidado em [out/p6/matriz.tsv](out/p6/matriz.tsv) e detalhes no [write-up P6](docs/writeup/06-p6-ambiente-glibc.md). `gen_data.py` fica fora da entrega e é barrado no contexto de build pelo `.dockerignore`.
 
-### Write-up técnico (P10) — em andamento
+### Write-up técnico (P10)
 
-> Documento principal, com a seção "o que acrescentamos aos materiais públicos". Os write-ups por etapa estão em [docs/writeup/](docs/writeup/).
+O documento principal que consolida a metodologia de engenharia reversa do grupo, justificando as decisões arquiteturais e detalhando formalmente **o que acrescentamos aos materiais públicos** (como a matriz de execução multi-ambiente e o desacoplamento das ferramentas). 
+
+Leia o documento finalizado em: [docs/writeup/10-p10-writeup-tecnico.md](docs/writeup/10-p10-writeup-tecnico.md). 
+    
+Os demais write-ups divididos por etapa continuam disponíveis na pasta [`docs/writeup/`](docs/writeup/).
 
 ## Divisão do trabalho
 
